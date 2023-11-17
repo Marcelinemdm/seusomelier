@@ -28,6 +28,12 @@ h2 {
   text-shadow: -4px 4px 25px #8131b0d0;
 }
 
+p {
+  color: #8000ff;
+  text-align: center;
+  text-shadow: -4px 4px 25px #8131b0d0;
+}
+
 .closeButton,
 #closeSidebar {
   position: absolute;
