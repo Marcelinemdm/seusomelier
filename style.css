@@ -88,13 +88,15 @@ p {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
-  color: #000000;
+  color: #ffffff;
+  text-shadow: -4px 4px 25px #8131b0d0;
   display: block;
   transition: 0.3s;
 }
 
 .sidebar a:hover {
-    color: rgb(255, 255, 255);
+  color: #8000ff;
+  text-shadow: -4px 4px 25px #8131b0;
 }
 
 #openSidebar {
@@ -123,7 +125,7 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 40vh;
+  height: 60vh;
 }
 
 .profile {
@@ -134,17 +136,14 @@ p {
   box-shadow: -4px 4px 25px #8131b0d0;
 }
 
-#linkedin img {
-  max-width: 45px;
-}
-
-#x img {
-  max-width: 25px;
+audio {
+  display: none;
 }
 
 footer {
   background-color: #000000;
   color: #8131b0;
+  box-shadow: -4px -4px 25px #8131b0d0;
   padding: 20px;
   text-align: center;
   position: fixed;
@@ -155,12 +154,12 @@ footer {
 
 @media only screen and (min-width: 350px) and (max-width: 750px) {
   #openSidebar {
-    display: block; /* Display the button for screen widths between 350px and 750px */
+    display: block;
   }
 }
 
 @media only screen and (min-width: 750px) {
   #openSidebar {
-    display: none; /* Hide the button for screen widths greater than 750px */
+    display: none;
   }
 }
