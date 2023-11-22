@@ -1,0 +1,52 @@
+body {
+  background-color: black;
+  color: white;
+  font-family: Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+article {
+  max-width: 600px;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  color: gold;
+}
+
+div > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+a {
+  color: gold;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+p {
+  line-height: 1.6;
+}
+
+hr {
+  border-color: gold;
+}
+
+small {
+  display: block;
+  margin-top: 8rem;
+}
+
+time {
+  color: gold;
+}
