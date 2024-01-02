@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> My Purple Ball - Seu Somelier</title>
+    <link rel="shortcut icon" href="/img/ce603a0499b07f0b52fd9d72261256eb.jpg" type="image/x-icon">
+    <style>
+        body {
+            background-color: #000000;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #circle {
+            width: 50px;
+            height: 50px;
+            background-color: #8d008d;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        #content {
+            margin-top: 15px;
+            text-align: center;
+            color: white;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+
+        #content a:hover {
+            color: gold;
+        }
+
+        #content a {
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <div>
+            <span>🟣 My Purple Ball</span>
+            <a href="/about-me">⭐ About Me</a>
+        </div>
+    </div>
+    <div id="circle"></div>
+
+    <script>
+        function moveCircle() {
+            var circle = document.getElementById('circle');
+
+            var newX = Math.random() * window.innerWidth;
+            var newY = Math.random() * window.innerHeight;
+
+            newX = Math.min(newX, window.innerWidth - circle.offsetWidth);
+            newY = Math.min(newY, window.innerHeight - circle.offsetHeight);
+
+            circle.style.left = newX + 'px';
+            circle.style.top = newY + 'px';
+        }
+
+        moveCircle();
+
+        setInterval(moveCircle, 1000);
+    </script>
+</body>
+</html>

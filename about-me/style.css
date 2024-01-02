@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Vithkuqi&family=Raleway:wght@300&display=swap');
+
 body {
   background-color: black;
-  color: white;
+  color: rgb(252, 252, 252);
+  text-shadow: -4px 4px 25px #34c5ff;
   font-family: Arial, sans-serif;
   display: flex;
   align-items: center;
@@ -16,7 +19,7 @@ article {
 }
 
 h1 {
-  color: gold;
+  color: #ffffff;
 }
 
 div > div {
@@ -26,12 +29,12 @@ div > div {
 }
 
 a {
-  color: gold;
+  color: #ffffff;
   text-decoration: none;
 }
 
-a:hover {
-  text-decoration: underline;
+a:hover{
+  color: #ffd900;
 }
 
 p {
@@ -39,14 +42,22 @@ p {
 }
 
 hr {
-  border-color: gold;
+  border-color: #ffffff;
 }
 
 small {
   display: block;
   margin-top: 8rem;
+  color: #ffd900;
 }
 
 time {
-  color: gold;
+  color: #ffd900;
+}
+
+#profile {
+  width: 150px;
+  margin-top: 15px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
 }
