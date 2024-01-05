@@ -61,3 +61,11 @@ time {
   border-radius: 50%;
   border: 2px solid #ffffff;
 }
+
+.text {
+  display: inline-block;
+}
+
+.icon {
+  margin-right: 10px;
+}
