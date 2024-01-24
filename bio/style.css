@@ -1,0 +1,65 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(#ffb4d3, #b595f9) fixed;
+  width: 50vh;
+  height: 100vh;
+  margin: auto;
+  overflow: hidden;
+}
+
+.main-content {
+  text-align: center;
+  padding: 20px;
+  color: #000000;
+}
+
+.socials a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #000000;
+}
+
+.socials a svg {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.picture img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+section {
+  margin: 20px;
+  text-align: center;
+}
+
+.button-link {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 15px;
+  background-color: #fdfdfd;
+  color: #000000;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  position: relative;
+}
+
+.button-link.about-me svg {
+  width: 20px;
+  height: 20px;
+}
+
+.button-link.linktree svg {
+  width: 20px;
+  height: 20px;
+}
+
+.spotify-iframe {
+  width: 50vh;
+  height: 30vh;
+  border-radius: 12px;
+}
