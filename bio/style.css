@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(#ffb4d3, #b595f9) fixed;
+  background: linear-gradient(#aa00ff, #000000) fixed;
   margin: auto;
   overflow: hidden;
 }
@@ -24,9 +24,21 @@ body {
 }
 
 .picture img {
-  width: 150px;
-  height: 150px;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
+  box-shadow: #de00e68c 0px 1px 4px, #fc00008a 0px 0px 0px 3px;
+  transition: box-shadow 0.3s ease-in-out;
+  animation: shadow-pulse 2s infinite alternate;
+}
+
+@keyframes shadow-pulse {
+  0% {
+    box-shadow: #f700ff 0px 1px 4px, #fc000098 0px 0px 0px 3px;
+  }
+  100% {
+    box-shadow: #de00e6 0px 1px 8px, #ac07ff 0px 0px 0px 5px;
+  }
 }
 
 section {
@@ -34,24 +46,73 @@ section {
   text-align: center;
 }
 
-.button-link {
-  display: inline-block;
-  padding: 10px 20px;
-  margin: 15px;
-  background-color: #fdfdfd;
-  color: #000000;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-  text-decoration: none;
+.spotify-iframe {
+  width: 350px;
+  height: 250px;
+}
+
+section button {
+  margin: 10px;
+}
+
+/* button */
+
+.glow-on-hover {
+  width: 120px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
   position: relative;
+  z-index: 0;
+  border-radius: 10px;
 }
 
-.button-link.about-me svg {
-  width: 20px;
-  height: 20px;
+.glow-on-hover:before {
+  content: '';
+  background: linear-gradient(45deg, #de00e6, #fc0000, #aa00ff, #000000);
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
 }
 
-.button-link.linktree svg {
-  width: 20px;
-  height: 20px;
+.glow-on-hover:active {
+  color: #000
+}
+
+.glow-on-hover:active:after {
+  background: transparent;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
 }
