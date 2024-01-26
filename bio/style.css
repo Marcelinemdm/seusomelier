@@ -2,8 +2,6 @@ body {
   margin: 0;
   padding: 0;
   background: linear-gradient(#ffb4d3, #b595f9) fixed;
-  width: 50vh;
-  height: 100vh;
   margin: auto;
   overflow: hidden;
 }
@@ -56,10 +54,4 @@ section {
 .button-link.linktree svg {
   width: 20px;
   height: 20px;
-}
-
-.spotify-iframe {
-  width: 50vh;
-  height: 30vh;
-  border-radius: 12px;
 }
