@@ -3,11 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>bio</title>
+  <title>Bio</title>
   <link rel="shortcut icon" href="picture.jpg" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- aviso -->
+  <div class="popup-overlay" id="popupOverlay">
+    <div class="popup">
+      <p>O site está sendo preparado. Volte em breve!</p>
+      <button onclick="closePopup()">Fechar</button>
+    </div>
+  </div>
+
   <div class="main-content">
     <div class="name"><h1>SOMELIER</h1></div>
     <div class="picture"><img src="picture.jpg" alt="picture"></div>
@@ -34,5 +42,6 @@
   <section>
     <iframe class="spotify-iframe" src="https://open.spotify.com/embed/playlist/2SnpXIjMRV88a43QPkzQD0?utm_source=generator&theme=0" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
   </section>
+  <script src="script.js"></script>
 </body>
 </html>
