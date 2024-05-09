@@ -1,4 +1,3 @@
-//currentYearMonth
 document.addEventListener('DOMContentLoaded', function () {
   const currentYearMonthElement = document.getElementById('currentYearMonth');
   if (currentYearMonthElement) {
@@ -23,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
           age++;
       }
 
-      currentAgeElement.innerHTML = `Working as a full stack developer<br>${age} years old`;
+      currentAgeElement.innerHTML = `Working as a C# developer<br>${age} years old`;
   }
 });
 
