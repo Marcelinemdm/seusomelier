@@ -78,13 +78,13 @@
 <body>
     <div>
         <h1 id="title">Image Converter</h1>
-        <form id="uploadForm" enctype="multipart/form-data">
-            <input type="file" name="image" accept=".heic,.jpg,.jpeg,.png" required>
-            <select name="format">
+        <form id="uploadForm">
+            <input type="file" id="imageInput" accept=".heic,.jpg,.jpeg,.png" required>
+            <select id="formatSelect">
                 <option value="jpeg">JPEG</option>
                 <option value="png">PNG</option>
             </select>
-            <button type="submit">Convert</button>
+            <button type="button" onclick="convertImage()">Convert</button>
         </form>
         <select id="languageSelect">
             <option value="en">English</option>
@@ -104,35 +104,48 @@
                 }
             };
             document.getElementById('title').textContent = translations[lang].title;
-            document.querySelector('button[type="submit"]').textContent = translations[lang].convert;
+            document.querySelector('button').textContent = translations[lang].convert;
         }
         document.getElementById('languageSelect').addEventListener('change', function() {
             const selectedLang = this.value;
             changeLanguage(selectedLang);
         });
         changeLanguage('en');
-    </script>
-    <script>
-    document.getElementById('uploadForm').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const formData = new FormData(e.target);
-        const response = await fetch('/upload', {
-            method: 'POST',
-            body: formData
-        });
-        if (response.ok) {
-            const blob = await response.blob();
-            const url = URL.createObjectURL(blob);
-            const link = document.createElement('a');
-            link.href = url;
-            link.download = 'converted.' + formData.get('format');
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        } else {
-            alert('Error during conversion');
+        async function convertImage() {
+            const imageInput = document.getElementById('imageInput');
+            const formatSelect = document.getElementById('formatSelect');
+            const format = formatSelect.value;
+            if (imageInput.files.length === 0) {
+                alert('Please select an image file.');
+                return;
+            }
+            const imageFile = imageInput.files[0];
+            const imageDataUrl = await readFileAsDataURL(imageFile);
+            const img = new Image();
+            img.onload = function() {
+                const canvas = document.createElement('canvas');
+                canvas.width = img.width;
+                canvas.height = img.height;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0);
+                const convertedDataUrl = canvas.toDataURL(`image/${format}`);
+                const link = document.createElement('a');
+                link.href = convertedDataUrl;
+                link.download = `converted.${format}`;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            };
+            img.src = imageDataUrl;
         }
-    });
+        function readFileAsDataURL(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = error => reject(error);
+                reader.readAsDataURL(file);
+            });
+        }
     </script>
 </body>
 </html>
