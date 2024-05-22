@@ -1,0 +1,17 @@
+{
+  "name": "image-converter-web",
+  "version": "1.0.0",
+  "description": "Image converter web application",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "heic-convert": "^1.0.0",
+    "multer": "^1.4.4",
+    "sharp": "^0.29.0"
+  },
+  "author": "",
+  "license": "ISC"
+}
