@@ -14,22 +14,33 @@
             height: 100vh;
             margin: 0;
         }
-        img {
-            width: 500px;
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        @media (max-width: 500px) {
-            img {
-                width: 350px;
-            }
+        .download-button {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
         }
-        @media (max-width: 500px) {
-            img{
-                width: 300px;
-            }
+        .download-button:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
-    <img src="hydra.png" alt="hydra">
+    <div class="button-container">
+        <a class="download-button" href="https://github.com/hydralauncher/hydra/releases/download/v1.2.4/hydralauncher-1.2.4-setup.exe">Download Hydra for Windows</a>
+        <a class="download-button" href="https://github.com/hydralauncher/hydra/releases/download/v1.2.4/hydralauncher_1.2.4_amd64.deb">Download Hydra for Linux (deb)</a>
+        <a class="download-button" href="https://github.com/hydralauncher/hydra/releases/download/v1.2.4/hydralauncher-1.2.4.AppImage">Download Hydra for Linux (AppImage)</a>
+    </div>
 </body>
 </html>
