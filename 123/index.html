@@ -1,65 +1,52 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>teste qrcode</title>
+    <title>Fvck you Text</title>
     <style>
         body {
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #ffffff;
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: #fff;
         }
 
-        h1 {
-            margin-bottom: 20px;
+        .message {
+            font-size: 3em;
+            text-align: center;
         }
 
-        .image-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            width: 100%;
-            max-width: 1920px;
-        }
-
-        .image-container img {
-            max-width: 100%;
-            height: auto;
-            border: 2px solid #ccc;
-            border-radius: 10px;
-        }
-
-        @media (max-width: 767px) {
-            .image-container {
-                flex-direction: column;
-                align-items: center;
+        @media (max-width: 320px) { /* iPhone SE */
+            .message {
+                font-size: 2.5em;
             }
+        }
 
-            .image-container img {
-                width: 90%;
+        @media (min-width: 360px) and (max-width: 400px) { /* Samsung S10 */
+            .message {
+                font-size: 2.8em;
+            }
+        }
+
+        @media (min-width: 410px) and (max-width: 450px) { /* iPhone 14 */
+            .message {
+                font-size: 3em;
+            }
+        }
+
+        @media (min-width: 450px) { /* Samsung S20 */
+            .message {
+                font-size: 3.2em;
             }
         }
     </style>
 </head>
 <body>
-    <h1>teste qrcode</h1>
-    <div class="image-container">
-        <div>
-            <h2>pix</h2>
-            <img src="/img/pix.png" alt="Imagem Pix">
-        </div>
-        <div>
-            <h2>tigrinho</h2>
-            <img src="https://www.conjur.com.br/wp-content/uploads/2024/06/jogo-do-tigrinho-fortune-tiger.jpeg" alt="Jogo do Tigrinho">
-        </div>
-    </div>
-    <h2>Un poco de alcohol dicen que no está mal
-        Pa' matar los nervios tengo que fumar</h2>
+    <div class="message">fvck you <3</div>
 </body>
 </html>
