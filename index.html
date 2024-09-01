@@ -2,11 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0;url=https://www.seusomelier.com.br/img/petri.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:title" content="Seu Somelier">
     <meta property="og:image" content="/img/ce603a0499b07f0b52fd9d72261256eb.jpg">
+    <link rel="shortcut icon" href="/img/ce603a0499b07f0b52fd9d72261256eb.jpg" type="image/x-icon">
     <title>Redirecionando...</title>
+    <script>
+        function redirectRandomly() {
+            const urls = [
+                'https://open.spotify.com/intl-pt/track/616O3f20hgTgpmiZf7XgEI?si=9c4df067737a4231',
+                'https://www.seusomelier.com.br/img/petri.png',
+                'https://open.spotify.com/intl-pt/track/1IHYVMeFy76X0Xl2DkLkDh?si=3734dee1f6524aa1',
+                'https://open.spotify.com/intl-pt/track/2sOvuDxLamSIUFYztPAadB?si=05cae4f3386247ca',
+                'tel:73999553575',
+                'https://open.spotify.com/intl-pt/track/0puD5Q7sCD9yQBA0g3euVa?si=b4171a426986467d',
+                'https://open.spotify.com/intl-pt/track/5xYbR943WcIBxiGDZKNuxz?si=e42b735ad9a34b80'
+            ];
+
+            const randomIndex = Math.floor(Math.random() * urls.length);
+
+            window.location.href = urls[randomIndex];
+        }
+
+        window.onload = redirectRandomly;
+    </script>
 </head>
 <body>
 </body>
