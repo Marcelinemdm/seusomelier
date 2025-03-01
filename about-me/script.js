@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const birthDate = new Date('2003-08-28');
       let age = calculateAge(birthDate, currentDate);
 
-      currentAgeElement.innerHTML = `Working as a C# developer<br>${age} years old`;
+      currentAgeElement.innerHTML = `<br>${age} years old`;
   }
 });
 

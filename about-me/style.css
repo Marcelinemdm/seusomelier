@@ -28,6 +28,10 @@ div > div {
   align-items: center;
 }
 
+span{
+  margin-right: 10px;
+}
+
 a {
   color: #ffffff;
   text-decoration: none;
