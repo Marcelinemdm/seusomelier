@@ -155,3 +155,80 @@ footer {
   bottom: 0;
   width: 100%;
 } */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Vithkuqi&family=Raleway:wght@300&display=swap');
+
+body {
+  background-color: black;
+  color: rgb(252, 252, 252);
+  text-shadow: -4px 4px 25px #34c5ff;
+  font-family: Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+article {
+  max-width: 600px;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  color: #ffffff;
+}
+
+div > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+span{
+  margin-right: 10px;
+}
+
+a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+a:hover{
+  color: #ffd900;
+}
+
+p {
+  line-height: 1.6;
+}
+
+hr {
+  border-color: #ffffff;
+}
+
+small {
+  display: block;
+  margin-top: 8rem;
+  color: #ffd900;
+}
+
+time {
+  color: #ffd900;
+}
+
+#profile {
+  width: 150px;
+  margin-top: 15px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+}
+
+.text {
+  display: inline-block;
+}
+
+.icon {
+  margin-right: 10px;
+}
