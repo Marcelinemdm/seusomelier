@@ -1,85 +1,66 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Roleta</title>
-  <style>
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: #222;
-      color: #fff;
-      font-family: sans-serif;
-    }
-    .roleta-container {
-      position: relative;
-      width: 300px;
-      height: 300px;
-    }
-    .roleta {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      border: 10px solid #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: transform 5s ease-out;
-      background: conic-gradient(
-        #e74c3c 0deg 60deg,
-        #f1c40f 60deg 120deg,
-        #2ecc71 120deg 180deg,
-        #3498db 180deg 240deg,
-        #9b59b6 240deg 300deg,
-        #e67e22 300deg 360deg
-      );
-    }
-    .ponteiro {
-      position: absolute;
-      top: -20px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 0;
-      height: 0;
-      border-left: 20px solid transparent;
-      border-right: 20px solid transparent;
-      border-bottom: 30px solid #fff;
-    }
-    button {
-      position: absolute;
-      bottom: -60px;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 10px 20px;
-      background: #fff;
-      color: #000;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Seu Somelier</title>
+
+    <meta name="description" content="Seu Somelier - C# Developer">
+    <meta name="keywords" content="Seu Somelier">
+    <meta name="author" content="Seu Somelier">
+    
+    <meta property="og:title" content="About Me - Seu Somelier">
+    <meta property="og:description" content="Seu Somelier - C# Developer">
+    <meta property="og:image" content="/img/ce603a0499b07f0b52fd9d72261256eb.jpg">
+    <meta property="og:url" content="https://www.seusomelier.com.br/about-me/">
+    <meta property="og:type" content="personal page">
+
+    <meta name="twitter:title" content="About Me - Seu Somelier">
+    <meta name="twitter:description" content="Seu Somelier - C# Developer">
+    <meta name="twitter:image" content="https://www.seusomelier.com.br/img/ce603a0499b07f0b52fd9d72261256eb.jpg">
+    <meta name="twitter:card" content="summary">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="/img/ce603a0499b07f0b52fd9d72261256eb.jpg" type="image/x-icon">
+
+</head>
 </head>
 <body>
-  <div class="roleta-container">
-    <div class="ponteiro"></div>
-    <div class="roleta" id="roleta"></div>
-    <button onclick="girarRoleta()">Girar</button>
-  </div>
-
-  <script>
-    function girarRoleta() {
-      const roleta = document.getElementById('roleta');
-
-      const anguloDesejado = 150;
-
-      const voltas = 5;
-
-      const anguloFinal = (voltas * 360) + anguloDesejado;
-
-      roleta.style.transform = `rotate(${anguloFinal}deg)`;
-    }
-  </script>
+    <article>
+        <h1>About Me</h1>
+        <div>
+            <div>
+                <span>⭐ About Me</span>
+                <a href="https://linktr.ee/seusomelier">🔗 linktree</a>
+            </div>
+        </div>
+        <img src="/img/ce603a0499b07f0b52fd9d72261256eb.jpg" alt="profile" id="profile">
+        <h1>
+          <p>Seu Somelier</p>
+        </h1>
+        <h1></h1>
+        <p id="currentAge"><br>
+          21 years old</p>
+        <hr>
+        <div class="text">
+          <div class="icon">
+              <a href="https://discord.com/users/287366389147238400" target="_blank">
+                  <img src="https://img.shields.io/badge/-Discord-7289DA?style=flat-square&logo=discord&logoColor=white" alt="Discord">
+              </a>
+          </div>
+          <div class="icon">
+            <a href="https://open.spotify.com/playlist/1Ir7esXxr6YPJwezdbuciI?si=d9d3ead62d69446d" target="_blank">
+                <img src="https://img.shields.io/badge/-Spotify-1ED760?style=flat-square&logo=spotify&logoColor=white" alt="Spotify">
+            </a>
+          </div>
+          <div class="icon">
+            <a href="mailto:contato@seusomelier.com.br">
+                <img src="https://img.shields.io/badge/-Email-black?style=flat-square&logo=mail.ru" alt="contato">
+            </a>
+          </div>
+        </div>
+        <small id="currentYearMonth"></small>
+    </article>
+    <script src="script.js"></script>
 </body>
 </html>
