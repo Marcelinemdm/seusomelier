@@ -4,59 +4,87 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Luiz Fernando</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Vithkuqi&family=Raleway:wght@300&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
+      background-color: black;
+      color: rgb(252, 252, 252);
+      text-shadow: -4px 4px 25px #34c5ff;
+      font-family: 'Raleway', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    article {
+      max-width: 600px;
+      padding: 20px;
       text-align: center;
-      padding: 50px;
     }
-    .profile-img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #333;
-    }
+
     h1 {
+      color: #ffffff;
       margin-top: 20px;
       font-size: 28px;
-      color: #333;
     }
+
+    #profile {
+      width: 150px;
+      height: 150px;
+      margin-top: 15px;
+      border-radius: 50%;
+      border: 2px solid #ffffff;
+      object-fit: cover;
+    }
+
     .icons {
       margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
     }
-    .icon {
-      margin: 10px;
-      display: inline-block;
-    }
+
     .icon img {
       height: 40px;
+    }
+
+    a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #ffd900;
     }
   </style>
 </head>
 <body>
 
-  <img src="https://cdn.discordapp.com/attachments/1188940137795698742/1360080191669407814/20250330_130948.jpg?ex=67f9d0e2&is=67f87f62&hm=ade4ab62fd774f69dccf43a37d086bd78678fb887e962bbba4f39931a171c300&" alt="perfil" class="img">
-  <h1>Luiz Fernando</h1>
+  <article>
+    <img id="profile" src="https://cdn.discordapp.com/attachments/1188940137795698742/1360080191669407814/20250330_130948.jpg?ex=67f9d0e2&is=67f87f62&hm=ade4ab62fd774f69dccf43a37d086bd78678fb887e962bbba4f39931a171c300&" alt="perfil">
+    <h1>Luiz Fernando</h1>
 
-  <div class="icons">
-    <div class="icon">
-      <a href="https://wa.me/5573999553575" target="_blank">
-        <img src="https://img.shields.io/badge/-WhatsApp-25D366?style=flat-square&logo=whatsapp&logoColor=white" alt="WhatsApp">
-      </a>
+    <div class="icons">
+      <div class="icon">
+        <a href="https://wa.me/5573999553575" target="_blank">
+          <img src="https://img.shields.io/badge/-WhatsApp-25D366?style=flat-square&logo=whatsapp&logoColor=white" alt="WhatsApp">
+        </a>
+      </div>
+      <div class="icon">
+        <a href="mailto:contato@seusomelier.com.br">
+          <img src="https://img.shields.io/badge/-Email-black?style=flat-square&logo=mail.ru" alt="Email">
+        </a>
+      </div>
+      <div class="icon">
+        <a href="https://open.spotify.com/playlist/1Ir7esXxr6YPJwezdbuciI?si=d9d3ead62d69446d" target="_blank">
+          <img src="https://img.shields.io/badge/-Spotify-1ED760?style=flat-square&logo=spotify&logoColor=white" alt="Spotify">
+        </a>
+      </div>
     </div>
-    <div class="icon">
-      <a href="mailto:contato@seusomelier.com.br">
-        <img src="https://img.shields.io/badge/-Email-black?style=flat-square&logo=mail.ru" alt="Email">
-      </a>
-    </div>
-    <div class="icon">
-      <a href="https://open.spotify.com/playlist/1Ir7esXxr6YPJwezdbuciI?si=d9d3ead62d69446d" target="_blank">
-        <img src="https://img.shields.io/badge/-Spotify-1ED760?style=flat-square&logo=spotify&logoColor=white" alt="Spotify">
-      </a>
-    </div>
-  </div>
+  </article>
 
 </body>
 </html>
