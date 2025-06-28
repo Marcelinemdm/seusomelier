@@ -1,86 +1,133 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seu Somelier</title>
-    <link rel="shortcut icon" href="/img/ce603a0499b07f0b52fd9d72261256eb.jpg" type="image/x-icon">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Vithkuqi&family=Raleway:wght@300&display=swap');
+    <meta property="og:title" content="Seu Somelier">
+    <meta property="og:image" content="/img/ce603a0499b07f0b52fd9d72261256eb.jpg">
+    <link rel="shortcut icon" href="/img/10ed6fb54f50fe863504be89b73eb8e0.jpg" type="image/x-icon">
+    <title>seusomelier</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-        body {
-            background-color: black;
-            color: rgb(252, 252, 252);
-            text-shadow: -4px 4px 25px #34c5ff;
-            font-family: Arial, sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #000000;
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    div {
+        text-align: center;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #f34343a2;
+        box-shadow: 0 4px 6px rgba(54, 54, 54, 0.466);
+        max-width: 500px;
+    }
+
+    img {
+        width: 100%;
+        max-width: 300px;
+        border-radius: 50%;
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+        color: #000000;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 1rem;
+        color: #000000;
+        margin-bottom: 20px;
+    }
+
+    .links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .links a {
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 0.9rem;
+        color: #000000;
+        transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .links a:hover {
+        transform: scale(1.1);
+        color: #ffffff;
+    }
+
+    .links img {
+        width: 50px;
+        height: 50px;
+        border-radius: 10px;
+        margin-bottom: 5px;
+    }
+
+    @media screen and (max-width: 375px) {
+        h1 {
+            font-size: 1.5rem;
         }
 
-        .container {
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
+        p {
+            font-size: 0.8rem;
         }
 
-        .container h1 {
-            color: #ffffff;
-            font-size: 24px;
-            margin-bottom: 20px;
+        img {
+            max-width: 250px;
         }
 
-        ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        li {
-            margin-bottom: 10px;
-        }
-
-        a {
-            color: #ffffff;
-            text-decoration: none;
-            border-bottom: 1px dashed #ffffff;
-            transition: border-bottom-color 0.3s ease-in-out;
-        }
-
-        a:hover {
-            border-bottom-color: #ffd900;
-        }
-        @media (max-width: 600px) {
-        div {
-            width: 90%;
-            height: auto;
+        .links img {
+            width: 40px;
+            height: 40px;
         }
     }
-    @media (max-width: 450px) {
-        div {
-            width: 80%;
-        }
-    }
-    @media (max-width: 350px) {
-        div {
-            width: 90%;
-        }
-    }
-    </style>
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to Seu Somelier</h1>
-        <ul>
-            <li><a href="https://seusomelier.com.br">Ponto Zero</a></li>
-            <li><a href="https://seusomelier.com.br/home/">Home</a></li>
-            <li><a href="https://seusomelier.com.br/about-me/">About Me</a></li>
-            <li><a href="https://seusomelier.com.br/code/">QR-CODE</a></li>
-
-        </ul>
+<div>
+    <img src="/img/04bb1d39d12afc57f140de7a43bbc856.png" alt="Profile image">
+    <h1>@seusomelier</h1>
+    <p>Eu bebi mas sou sommelier<br> 📍Divinopolis-MG 🇧🇷 | 🏍️ MT 03 | 21Y</p>
+    <div class="links">
+        <a href="https://seusomelier.com.br/about-me" target="_blank">
+            <img src="/img/ce603a0499b07f0b52fd9d72261256eb.jpg" alt="About Me">
+            About Me
+        </a>
+        <a href="https://open.spotify.com/playlist/4lIdXpNlraU46lFwzPxgx1?si=21f531c8a34a4a7a" target="_blank">
+            <img src="/img/taylor.jpg" alt="Spotify">
+            Spotify
+        </a>
+        <a href="https://steamcommunity.com/id/seusommelier/" target="_blank">
+            <img src="/img/Steam-Logo.png" alt="Steam">
+            Steam
+        </a>
+        <a href="https://meupc.net/perfil/SeuSomelier" target="_blank">
+            <img src="/img/febe6376-467e-4bb8-8a25-041913fc8d3e_pc.webp" alt="Meu PC">
+            Meu PC
+        </a>
+        <a href="https://valid.x86.fr/l9lv9u" target="_blank">
+            <img src="/img/CPU-Z.png" alt="CPU-Z">
+            CPU-Z
+        </a>
     </div>
+</div>
 </body>
 </html>
