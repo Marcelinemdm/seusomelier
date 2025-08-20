@@ -1,66 +1,134 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me - Seu Somelier</title>
-
-    <meta name="description" content="Seu Somelier - C# Developer">
-    <meta name="keywords" content="Seu Somelier">
-    <meta name="author" content="Seu Somelier">
-    
-    <meta property="og:title" content="About Me - Seu Somelier">
-    <meta property="og:description" content="Seu Somelier - C# Developer">
+    <meta property="og:title" content="Seu Somelier">
     <meta property="og:image" content="/img/ce603a0499b07f0b52fd9d72261256eb.jpg">
-    <meta property="og:url" content="https://www.seusomelier.com.br/about-me/">
-    <meta property="og:type" content="personal page">
+    <link rel="shortcut icon" href="/img/10ed6fb54f50fe863504be89b73eb8e0.jpg" type="image/x-icon">
+    <title>seusomelier</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-    <meta name="twitter:title" content="About Me - Seu Somelier">
-    <meta name="twitter:description" content="Seu Somelier - C# Developer">
-    <meta name="twitter:image" content="https://www.seusomelier.com.br/img/ce603a0499b07f0b52fd9d72261256eb.jpg">
-    <meta name="twitter:card" content="summary">
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #000000;
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="/img/ce603a0499b07f0b52fd9d72261256eb.jpg" type="image/x-icon">
+    div {
+        text-align: center;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #f34343a2;
+        box-shadow: 0 4px 6px rgba(54, 54, 54, 0.466);
+        max-width: 500px;
+    }
 
-</head>
+    img {
+        width: 100%;
+        max-width: 300px;
+        border-radius: 50%;
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+        color: #000000;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 1rem;
+        color: #000000;
+        margin-bottom: 20px;
+    }
+
+    .links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .links a {
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 0.9rem;
+        color: #000000;
+        transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .links a:hover {
+        transform: scale(1.1);
+        color: #ffffff;
+    }
+
+    .links img {
+        width: 50px;
+        height: 50px;
+        border-radius: 10px;
+        margin-bottom: 5px;
+    }
+
+    @media screen and (max-width: 375px) {
+        h1 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            font-size: 0.8rem;
+        }
+
+        img {
+            max-width: 250px;
+        }
+
+        .links img {
+            width: 40px;
+            height: 40px;
+        }
+    }
+</style>
 </head>
 <body>
-    <article>
-        <h1>About Me</h1>
-        <div>
-            <div>
-                <span>⭐ About Me</span>
-                <a href="https://linktr.ee/seusomelier">🔗 linktree</a>
-            </div>
-        </div>
-        <img src="/img/ce603a0499b07f0b52fd9d72261256eb.jpg" alt="profile" id="profile">
-        <h1>
-          <p>Seu Somelier</p>
-        </h1>
-        <h1></h1>
-        <p id="currentAge"><br>
-          21 years old</p>
-        <hr>
-        <div class="text">
-          <div class="icon">
-              <a href="https://discord.com/users/287366389147238400" target="_blank">
-                  <img src="https://img.shields.io/badge/-Discord-7289DA?style=flat-square&logo=discord&logoColor=white" alt="Discord">
-              </a>
-          </div>
-          <div class="icon">
-            <a href="https://open.spotify.com/playlist/1Z9oGYRP1Nan1YkXwWKFqH?si=628af29e4fb042a8" target="_blank">
-                <img src="https://img.shields.io/badge/-Spotify-1ED760?style=flat-square&logo=spotify&logoColor=white" alt="Spotify">
-            </a>
-          </div>
-          <div class="icon">
-            <a href="mailto:contato@seusomelier.com.br">
-                <img src="https://img.shields.io/badge/-Email-black?style=flat-square&logo=mail.ru" alt="contato">
-            </a>
-          </div>
-        </div>
-        <small id="*"></small>
-    </article>
-    <script src="script.js"></script>
+<div>
+    <img src="/img/ce603a0499b07f0b52fd9d72261256eb.jpg" alt="Profile image">
+    <h1>@seusomelier</h1>
+    <p>Eu bebi mas sou sommelier<br> 📍Divinopolis-MG 🇧🇷 | 🏍️ MT 03 | 21Y</p>
+    <div class="links">
+        <a href="https://open.spotify.com/playlist/4af1hIVtmqGdNYAOi3OM6x?si=fad4d4e105ea49f0" target="_blank">
+            <img src="/img/taylor.jpg" alt="Spotify">
+            Spotify
+        </a>
+        <a href="https://steamcommunity.com/id/seusommelier/" target="_blank">
+            <img src="/img/Steam-Logo.png" alt="Steam">
+            Steam
+        </a>
+        <a href="https://meupc.net/perfil/SeuSomelier" target="_blank">
+            <img src="/img/febe6376-467e-4bb8-8a25-041913fc8d3e_pc.webp" alt="Meu PC">
+            Meu PC
+        </a>
+        <a href="https://valid.x86.fr/l9lv9u" target="_blank">
+            <img src="/img/CPU-Z.png" alt="CPU-Z">
+            CPU-Z
+        </a>
+
+        <a href="https://www.instagram.com/seusomelier/" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/500px-Instagram_icon.png" alt="instagram">
+            instagram
+        </a>
+    </div>
+</div>
 </body>
 </html>
