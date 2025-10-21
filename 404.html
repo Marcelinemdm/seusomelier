@@ -1,9 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ERROR 404</title>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERROR 404</title>
+
+    <meta name="description" content="Seu Somelier - C# Developer">
+    <meta name="keywords" content="Seu Somelier">
+    <meta name="author" content="Seu Somelier">
+    
+    <meta property="og:title" content="About Me - Seu Somelier">
+    <meta property="og:description" content="Seu Somelier - C# Developer">
+    <meta property="og:image" content="/img/ce603a0499b07f0b52fd9d72261256eb.jpg">
+    <meta property="og:url" content="https://www.seusomelier.com.br/about-me/">
+    <meta property="og:type" content="personal page">
+
+    <meta name="twitter:title" content="About Me - Seu Somelier">
+    <meta name="twitter:description" content="Seu Somelier - C# Developer">
+    <meta name="twitter:image" content="https://www.seusomelier.com.br/img/ce603a0499b07f0b52fd9d72261256eb.jpg">
+    <meta name="twitter:card" content="summary">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="/img/ce603a0499b07f0b52fd9d72261256eb.jpg" type="image/x-icon">
   <style>
     * {
       margin: 0;
@@ -47,23 +65,23 @@
 </head>
 <body>
   <div class="container">
-    <img id="pombo" src="" alt="Pombo aleatório" />
+    <img id="ERROR" src=""/>
   </div>
 
   <script>
-    const imagensPombo = [
-      "https://upload.wikimedia.org/wikipedia/commons/5/5f/Feral_Pigeon_in_London_2.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/0/0b/Pigeon_on_rail.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/7/76/Columba_livia_f.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/b/bf/Pigeon_on_the_ground.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/1/1e/Rock_Pigeon_Columba_livia.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/f/f0/Pigeon_staring.jpg"
+    const imagensERROR = [
+      "https://i.pinimg.com/736x/de/64/16/de6416cfee8a5e416ce6742a2558d8c7.jpg",
+      "https://i.pinimg.com/736x/98/5d/87/985d87628ec385e2cca1af186d47ee15.jpg",
+      "https://i.pinimg.com/736x/71/9f/69/719f69160da14489a2885f802d535b2e.jpg",
+      "https://i.pinimg.com/736x/32/52/7c/32527c7c8de02182d6ad8cc98f541e8d.jpg",
+      "https://i.pinimg.com/736x/f8/ab/b4/f8abb47544b31562d8756a1ee1a13183.jpg",
+      "https://i.pinimg.com/originals/12/fb/b5/12fbb5b9e0b4ac368ca871541c3ecb06.gif",
     ];
 
 
-    const imagemAleatoria = imagensPombo[Math.floor(Math.random() * imagensPombo.length)];
+    const imagemAleatoria = imagensERROR[Math.floor(Math.random() * imagensERROR.length)];
 
-    document.getElementById("pombo").src = imagemAleatoria;
+    document.getElementById("ERROR").src = imagemAleatoria;
   </script>
 </body>
 </html>
