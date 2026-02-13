@@ -40,7 +40,7 @@ setInterval(() => {
 const getNeofetchHTML = () => `
 <div class="neofetch-container">
     <div class="image-col">
-        <img src="https://y2k.seusomelier.com.br/img/472684011_18494965459009287_7220539255364855977_n (Edit).png" alt="Avatar" class="avatar">
+        <img src="img/472684011_18494965459009287_7220539255364855977_n (Edit).png" alt="Avatar" class="avatar">
     </div>
     <div class="info-col">
         <div class="info-line"><span class="key">seusomelier@archlinux</span></div>
