@@ -3,104 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me | Seu Sommelier</title>
-
-    <meta name="description" content="Portfólio pessoal de Seu Somelier">
-    <meta name="keywords" content="Seu Somelier">
-    <meta name="author" content="Seu Somelier">
-    <link rel="canonical" href="https://y2k.seusomelier.com.br">
-    <meta name="theme-color" content="#4a0e0e">
-
-    <meta property="og:site_name" content="Seu Somelier">
-    <meta property="og:title" content="Seu Somelier">
-    <meta property="og:description" content="Portfólio pessoal de Seu Somelier">
-    <meta property="og:image" content="https://y2k.seusomelier.com.br/img/taylor.jpg">
-    <meta property="og:url" content="https://y2k.seusomelier.com.br">
-    <meta property="og:type" content="website">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Seu Somelier">
-    <meta name="twitter:description" content="Portfólio pessoal de Seu Somelier">
-    <meta name="twitter:image" content="https://y2k.seusomelier.com.br/img/taylor.jpg">
-
-    <link rel="shortcut icon" href="/img/taylor.jpg" type="image/x-icon">
+    <title>Seu Sommelier @ ArchLinux</title>
     <link rel="stylesheet" href="style.css">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <main class="card-container">
-        <header class="profile-header">
-            <div class="image-wrapper">
-                <img src="/img/taylor.jpg" alt="Foto de Perfil" class="profile-img">
-            </div>
-            
-            <h1 class="profile-name">Seu Sommelier</h1>
-            
-            <p class="profile-bio" id="idade-display"></p>
-        </header>
-
-        <nav class="links-list">
-            <a href="https://www.instagram.com/seusomelier/" target="_blank" class="link-item">
-                <i data-lucide="instagram"></i>
-                <span>Instagram</span>
-            </a>
-            
-            <a href="https://discord.com/users/287366389147238400" target="_blank" class="link-item">
-                <i data-lucide="gamepad-2"></i>
-                <span>Discord</span>
-            </a>
-            
-            <a href="https://github.com/Marcelinemdm" target="_blank" class="link-item">
-                <i data-lucide="github"></i>
-                <span>GitHub</span>
-            </a>
-
-            <a href="https://open.spotify.com/playlist/26emuwehR5u21LbeL5uBR5?si=afeead2a2f3c42a0" target="_blank" class="link-item">
-                <i data-lucide="music"></i>
-                <span>Spotify</span>
-            </a>
-            
-            <a href="https://livepix.gg/seusomelier" target="_blank" class="link-item">
-                <i data-lucide="coins"></i>
-                <span>MeuPix</span>
-            </a>
-
-            <a href="mailto:contato@seusomelier.com.br" class="link-item">
-                <i data-lucide="mail"></i>
-                <span>Email</span>
-            </a>
-        </nav>
-
-        <footer>
-            <p class="footer-credit">SeuSomelier © 2024</p>
-        </footer>
-    </main>
-
-    <script>
-        lucide.createIcons();
-
-        function atualizarIdade() {
-            const dataNascimento = new Date("2003-08-28"); 
-            
-            const hoje = new Date();
-            let idade = hoje.getFullYear() - dataNascimento.getFullYear();
-            const mesAtual = hoje.getMonth() - dataNascimento.getMonth();
-
-            if (mesAtual < 0 || (mesAtual === 0 && hoje.getDate() < dataNascimento.getDate())) {
-                idade--;
-            }
-
-            const elementoIdade = document.getElementById("idade-display");
-            if (elementoIdade) {
-                elementoIdade.innerText = `${idade} years old`;
-            }
-        }
-        atualizarIdade();
-    </script>
+    <div id="terminal">
+        <div id="output"></div>
+        
+        <div class="input-line">
+            <span class="prompt">seusomelier@archlinux ~&gt;</span>
+            <input type="text" id="command-input" autofocus spellcheck="false">
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
