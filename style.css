@@ -114,3 +114,37 @@ a:hover { color: var(--cyan); }
     .help-grid { grid-template-columns: 1fr; gap: 5px; }
     .cmd-desc { padding-left: 20px; margin-bottom: 10px; }
 }
+/* ----------------------- */
+.ls-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+.ls-dir { color: var(--purple); font-weight: bold; }
+.ls-file { color: var(--text-main); }
+.ls-perm { color: var(--comment); margin-right: 10px; }
+
+/* Estilos para o Speedtest */
+.speedtest-container {
+    margin: 10px 0;
+    font-family: 'JetBrains Mono', monospace;
+}
+.st-line { display: flex; gap: 10px; margin-bottom: 5px; }
+.st-label { color: var(--cyan); width: 100px; }
+.st-val { color: #fff; }
+.st-progress { color: var(--comment); }
+
+/* Estilos para o Pacman */
+#pacman-canvas {
+    background-color: #000;
+    border: 2px solid var(--purple);
+    margin: 10px 0;
+    display: block;
+    image-rendering: pixelated;
+}
+.game-controls-hint {
+    color: var(--comment);
+    font-size: 12px;
+    margin-top: 5px;
+}
