@@ -52,16 +52,16 @@ setInterval(() => {
 const getNeofetchHTML = () => `
 <div class="neofetch-container">
     <div class="image-col">
-        <img src="img/472684011_18494965459009287_7220539255364855977_n (Edit).png" alt="Avatar" class="avatar">
+        <img src="img/diva.jpg" alt="Avatar" class="avatar">
     </div>
     <div class="info-col">
         <div class="info-line"><span class="key">seusomelier@archlinux</span></div>
         <div class="info-line">---------------------</div>
         <div class="info-line"><span class="key">OS:</span> <span class="val">Arch Linux x86_64</span></div>
-        <div class="info-line"><span class="key">Kernel:</span> <span class="val">Linux 6.12.69-1-lts</span></div>
-        <div class="info-line"><span class="key">Shell:</span> <span class="val">fish 4.4.0</span></div>
+        <div class="info-line"><span class="key">Kernel:</span> <span class="val">Linux 6.12.75-1-lts</span></div>
+        <div class="info-line"><span class="key">Shell:</span> <span class="val">fish 4.5.0</span></div>
         <div class="info-line">---------------------</div>
-        <div class="info-line"><span class="key">WM:</span> <span class="val">Hyprland 0.53.3 (Wayland)</span></div>
+        <div class="info-line"><span class="key">WM:</span> <span class="val">Hyprland 0.54.1 (Wayland)</span></div>
         <div class="info-line"><span class="key">Terminal:</span> <span class="val">kitty 0.45.0</span></div>
         <div class="info-line">---------------------</div>
         <div class="info-line"><span class="key">UpTime:</span> <span class="val live-uptime">${getUptimeString()}</span></div>
@@ -71,7 +71,7 @@ const getNeofetchHTML = () => `
 
 const getHelpHTML = () => `
 <div class="help-container">
-    <div class="help-header">Seu Sommelier - Portfolio</div>
+    <div class="help-header">Seu Sommelier</div>
     <div style="margin-bottom: 10px">Usage: command [FLAGS]</div>
     <div style="margin-bottom: 10px">Commands:</div>
     <div class="help-grid">
@@ -316,7 +316,7 @@ const commands = {
     neofetch: getNeofetchHTML,
     help: getHelpHTML,
     ls: runLs,
-    bio: () => `<p class="response">Sou um desenvolvedor apaixonado por Linux e Web.<br>Idade: ${getUptimeString()}</p>`,
+    bio: () => `<p class="response">Segredo.<br>Idade: ${getUptimeString()}</p>`,
     social: () => `<p class="response">Instagram, Discord, GitHub, Spotify, Email</p>`,
     clear: "clear",
     instagram: "Abrindo Instagram...",

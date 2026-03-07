@@ -5,12 +5,11 @@
     --pink: #ff7eb6;
     --purple: #bd93f9;
     --comment: #565f89;
-    --red-glow: rgba(180, 20, 20, 0.2);
+    --red-glow: rgba(255, 0, 0, 0.2);
 }
 
 body {
     background-color: var(--bg-color);
-    background-image: radial-gradient(circle at 0% 50%, var(--red-glow), transparent 40%);
     color: var(--text-main);
     font-family: 'JetBrains Mono', 'Courier New', monospace;
     padding: 20px;
@@ -19,6 +18,22 @@ body {
     box-sizing: border-box;
     overflow-x: hidden;
     font-size: 14px;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background-image: url("img/lisa-bose-5k-3840x2160-22486.jpg");
+    background-size: cover;
+    background-position: center;
+
+    filter: blur(25px) brightness(0.5);
+    transform: scale(1.15);
+
+    z-index: -3;
 }
 
 #terminal {
