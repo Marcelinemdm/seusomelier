@@ -1,19 +1,27 @@
-const input = document.getElementById('command-input');
-const output = document.getElementById('output');
+const input    = document.getElementById('command-input');
+const output   = document.getElementById('output');
 const birthDate = new Date("2003-08-28T00:00:00");
 
-let isPlayingGame = false;
+let isPlayingGame    = false;
 let isPacmanInstalled = false;
 
 const fileSystem = {
     "img": {
         type: "dir",
-        content: ["taylor.jpg", "avatar.png", "favicon.ico"]
+        content: [
+            "472684011_18494965459009287_7220539255364855977_n (Edit).png",
+            "ce603a0499b07f0b52fd9d72261256eb.jpg",
+            "diva.jpg",
+            "lisa-bose-5k-3840x2160-22486.jpg",
+            "nada-para-ver-aqui.jpg",
+            "taylor.jpg"
+        ]
     },
+    "404.html":      { type: "file" },
+    "CNAME":         { type: "file" },
     "index.html":    { type: "file" },
     "style.css":     { type: "file" },
-    "testscript.js": { type: "file" },
-    "README.md":     { type: "file" }
+    "testscript.js": { type: "file" }
 };
 
 function getUptimeString() {
@@ -21,7 +29,6 @@ function getUptimeString() {
     let years  = now.getFullYear() - birthDate.getFullYear();
     let months = now.getMonth()    - birthDate.getMonth();
     let days   = now.getDate()     - birthDate.getDate();
-
     if (days < 0) {
         const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
         days += prevMonth.getDate();
@@ -64,11 +71,12 @@ const getNeofetchHTML = () => `
 const getHelpHTML = () => `
 <div class="help-container">
     <div class="help-header">Seu Sommelier</div>
-    <div style="margin-bottom: 10px">Usage: command [FLAGS]</div>
-    <div style="margin-bottom: 10px">Commands:</div>
+    <div style="margin-bottom:10px">Usage: command [FLAGS]</div>
+    <div style="margin-bottom:10px">Commands:</div>
     <div class="help-grid">
         <div class="cmd-name">neofetch</div>              <div class="cmd-desc">Exibir informações do sistema</div>
         <div class="cmd-name">ls</div>                    <div class="cmd-desc">Listar arquivos</div>
+        <div class="cmd-name">cat [arquivo]</div>         <div class="cmd-desc">Exibir conteúdo de um arquivo</div>
         <div class="cmd-name">speedtest</div>             <div class="cmd-desc">Testar conexão (apenas visual)</div>
         <div class="cmd-name">bio</div>                   <div class="cmd-desc">Sobre mim</div>
         <div class="cmd-name">social</div>                <div class="cmd-desc">Redes sociais</div>
@@ -95,6 +103,40 @@ const runLs = () => {
         }
     }
     return html + '</div>';
+};
+
+const runCat = (args) => {
+    if (!args || args.length === 0)
+        return `<p class="error">cat: faltando operando. Uso: cat [arquivo]</p>`;
+
+    const file = args.join(' ');
+
+    if (file === 'img/nada-para-ver-aqui.jpg' || file === 'nada-para-ver-aqui.jpg') {
+        return `
+        <div class="response" style="line-height:2">
+            <span style="color:var(--comment)"># nada para ver aqui mesmo... ou tem?</span><br>
+            <span style="color:var(--purple)">reader</span>.<span style="color:var(--cyan)">seusomelier.com.br</span>
+            &nbsp;<a href="https://reader.seusomelier.com.br" target="_blank" style="color:var(--comment);font-size:12px">[abrir]</a><br>
+            <span style="color:var(--purple)">watch</span>.<span style="color:var(--cyan)">seusomelier.com.br</span>
+            &nbsp;<a href="https://watch.seusomelier.com.br" target="_blank" style="color:var(--comment);font-size:12px">[abrir]</a>
+        </div>`;
+    }
+
+    if (file === 'CNAME')
+        return `<p class="response">seusomelier.com.br</p>`;
+
+    const knownFiles = [
+        '404.html', 'index.html', 'style.css', 'testscript.js',
+        'img/diva.jpg', 'img/taylor.jpg',
+        'img/ce603a0499b07f0b52fd9d72261256eb.jpg',
+        'img/lisa-bose-5k-3840x2160-22486.jpg',
+        'img/472684011_18494965459009287_7220539255364855977_n (Edit).png'
+    ];
+
+    if (knownFiles.includes(file))
+        return `<p class="error">cat: ${file}: arquivo binário ou sem prévia disponível</p>`;
+
+    return `<p class="error">cat: ${file}: Arquivo não encontrado</p>`;
 };
 
 const runSpeedtest = (wrapper) => {
@@ -185,7 +227,7 @@ const startPacmanGame = (wrapper) => {
     hint.innerText = "Use as Setas para mover. Pressione 'ESC' para sair.";
     wrapper.appendChild(hint);
 
-    const ctx = canvas.getContext('2d');
+    const ctx  = canvas.getContext('2d');
     const cols = 15, rows = 15, size = 20;
 
     let map = [];
@@ -197,19 +239,22 @@ const startPacmanGame = (wrapper) => {
         map.push(row);
     }
 
-    let pacman = { x: 1, y: 1, dx: 0, dy: 0 };
-    let score = 0;
+    let pacman    = { x: 1, y: 1, dx: 0, dy: 0 };
+    let score     = 0;
     let totalDots = map.flat().filter(v => v === 0).length;
+    let gameEnded = false;
 
     const stopGame = (message = "Game Over / Quit", color = "var(--pink)") => {
+        if (gameEnded) return;
+        gameEnded = true;
         clearInterval(gameLoop);
         document.removeEventListener('keydown', handleGameInput);
         isPlayingGame = false;
         input.focus();
         const msg = document.createElement('div');
-        msg.style.color = color;
+        msg.style.color     = color;
         msg.style.marginTop = '10px';
-        msg.textContent = message;
+        msg.textContent     = message;
         wrapper.appendChild(msg);
         window.scrollTo(0, document.body.scrollHeight);
     };
@@ -244,7 +289,7 @@ const startPacmanGame = (wrapper) => {
 
         if (score === totalDots) {
             ctx.fillStyle = '#5de4c7';
-            ctx.font = '20px monospace';
+            ctx.font      = '20px monospace';
             ctx.fillText("YOU WIN!", 90, 150);
             stopGame("🎉 Você Venceu!", "var(--cyan)");
         }
@@ -269,7 +314,6 @@ const startPacmanGame = (wrapper) => {
     const handleGameInput = (e) => {
         const gameKeys = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Escape'];
         if (gameKeys.includes(e.key)) e.preventDefault();
-
         if (e.key === 'ArrowUp')    { pacman.dx = 0;  pacman.dy = -1; }
         if (e.key === 'ArrowDown')  { pacman.dx = 0;  pacman.dy =  1; }
         if (e.key === 'ArrowLeft')  { pacman.dx = -1; pacman.dy =  0; }
@@ -281,11 +325,12 @@ const startPacmanGame = (wrapper) => {
 };
 
 const commands = {
-    neofetch: getNeofetchHTML,
-    help:     getHelpHTML,
-    ls:       runLs,
-    bio:      () => `<p class="response">Segredo.<br>Idade: ${getUptimeString()}</p>`,
-    social:   () => `
+    neofetch:  getNeofetchHTML,
+    help:      getHelpHTML,
+    ls:        runLs,
+    cat:       runCat,
+    bio:       () => `<p class="response">Segredo.<br>Idade: ${getUptimeString()}</p>`,
+    social:    () => `
         <div class="response">
             <a href="https://www.instagram.com/seusomelier/" target="_blank">Instagram</a> &nbsp;·&nbsp;
             <a href="https://github.com/Marcelinemdm" target="_blank">GitHub</a> &nbsp;·&nbsp;
@@ -310,12 +355,14 @@ input.addEventListener('keydown', (e) => {
     if (e.key !== 'Enter') return;
 
     const fullCommand = input.value.trim();
-    const cmd = fullCommand.split(' ')[0].toLowerCase();
+    const parts       = fullCommand.split(' ');
+    const cmd         = parts[0].toLowerCase();
+    const args        = parts.slice(1);
 
     const cmdLine = document.createElement('div');
     cmdLine.className = 'user-command-line';
     const promptSpan = document.createElement('span');
-    promptSpan.className = 'prompt';
+    promptSpan.className   = 'prompt';
     promptSpan.textContent = 'seusomelier@archlinux ~> ';
     cmdLine.appendChild(promptSpan);
     cmdLine.appendChild(document.createTextNode(fullCommand));
@@ -346,28 +393,27 @@ input.addEventListener('keydown', (e) => {
             const wrapper = document.createElement('div');
             output.appendChild(wrapper);
             installPacman(wrapper);
-
         } else if (fullCommand === 'sudo rm -rf /') {
             const err = document.createElement('p');
-            err.className = 'error';
-            err.textContent = "rm: não é possível remover o sistema de arquivos raiz. (nice try)";
+            err.className   = 'error';
+            err.textContent = "rm: não é possível remover o sistema de arquivos raiz. (nice try 😄)";
             output.appendChild(err);
         } else {
             const err = document.createElement('p');
-            err.className = 'error';
+            err.className   = 'error';
             err.textContent = "sudo: comando desconhecido ou permissão negada. Tente: 'sudo pacman -S pacman'";
             output.appendChild(err);
         }
 
     } else if (commands[cmd]) {
         const wrapper = document.createElement('div');
-        wrapper.innerHTML = commands[cmd]();
+        wrapper.innerHTML = commands[cmd](args);
         output.appendChild(wrapper);
         handleRedirection(cmd);
 
     } else {
         const err = document.createElement('p');
-        err.className = 'error';
+        err.className   = 'error';
         err.textContent = `Comando não encontrado: ${cmd}. Digite 'help'.`;
         output.appendChild(err);
     }
