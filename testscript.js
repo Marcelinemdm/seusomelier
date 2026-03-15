@@ -72,10 +72,10 @@ const getNeofetchHTML = () => `
         <div class="info-line"><span class="key">seusomelier@archlinux</span></div>
         <div class="info-line">---------------------</div>
         <div class="info-line"><span class="key">OS:</span>       <span class="val">Arch Linux x86_64</span></div>
-        <div class="info-line"><span class="key">Kernel:</span>   <span class="val">Linux 6.12.75-1-lts</span></div>
+        <div class="info-line"><span class="key">Kernel:</span>   <span class="val">Linux 6.18.17-1-lts</span></div>
         <div class="info-line"><span class="key">Shell:</span>    <span class="val">fish 4.5.0</span></div>
         <div class="info-line">---------------------</div>
-        <div class="info-line"><span class="key">WM:</span>       <span class="val">Hyprland 0.54.1 (Wayland)</span></div>
+        <div class="info-line"><span class="key">WM:</span>       <span class="val">Hyprland 0.54.2 (Wayland)</span></div>
         <div class="info-line"><span class="key">Terminal:</span> <span class="val">kitty 0.45.0</span></div>
         <div class="info-line">---------------------</div>
         <div class="info-line"><span class="key">UpTime:</span>   <span class="val live-uptime">${getUptimeString()}</span></div>
