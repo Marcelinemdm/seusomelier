@@ -381,7 +381,7 @@ const commands = {
             <a href="https://www.instagram.com/seusomelier/" target="_blank">Instagram</a> &nbsp;·&nbsp;
             <a href="https://github.com/Marcelinemdm" target="_blank">GitHub</a> &nbsp;·&nbsp;
             <a href="https://discord.com/users/287366389147238400" target="_blank">Discord</a> &nbsp;·&nbsp;
-            <a href="https://open.spotify.com/playlist/26emuwehR5u21LbeL5uBR5?si=afeead2a2f3c42a0" target="_blank">Spotify</a> &nbsp;·&nbsp;
+            <a href="https://open.spotify.com/user/21y377h4crhxufpfvftoihrtq?si=55488461e0dd42ae" target="_blank">Spotify</a> &nbsp;·&nbsp;
             <a href="mailto:contato@seusomelier.com.br">Email</a>
         </div>`,
     instagram: () => `<p class="response">Abrindo Instagram...</p>`,
@@ -469,7 +469,7 @@ function handleRedirection(cmd) {
         instagram: "https://www.instagram.com/seusomelier/",
         github:    "https://github.com/Marcelinemdm",
         discord:   "https://discord.com/users/287366389147238400",
-        spotify:   "https://open.spotify.com/playlist/26emuwehR5u21LbeL5uBR5?si=afeead2a2f3c42a0",
+        spotify:   "https://open.spotify.com/user/21y377h4crhxufpfvftoihrtq?si=55488461e0dd42ae",
         email:     "mailto:contato@seusomelier.com.br",
     };
     if (urls[cmd]) setTimeout(() => window.open(urls[cmd], '_blank'), 1000);
