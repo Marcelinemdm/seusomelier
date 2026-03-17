@@ -128,6 +128,8 @@ const runCat = (args) => {
         return `
         <div class="response" style="line-height:2">
             <span style="color:var(--comment)"># nada para ver aqui mesmo... ou tem?</span><br>
+            <span style="color:var(--purple)">yaindex</span>.<span style="color:var(--cyan)">seusomelier.com.br</span>
+            &nbsp;<a href="https://yaindex.seusomelier.com.br" target="_blank" style="color:var(--comment);font-size:12px">[abrir]</a><br>
             <span style="color:var(--purple)">reader</span>.<span style="color:var(--cyan)">seusomelier.com.br</span>
             &nbsp;<a href="https://reader.seusomelier.com.br" target="_blank" style="color:var(--comment);font-size:12px">[abrir]</a><br>
             <span style="color:var(--purple)">watch</span>.<span style="color:var(--cyan)">seusomelier.com.br</span>
