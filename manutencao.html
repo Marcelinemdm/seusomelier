@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reader — Manutenção</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap');
+
+    :root {
+      --bg: #0a0a0f;
+      --surface: #0f0f1a;
+      --border: #2a2a4a;
+      --accent: #7c6af7;
+      --accent2: #f76a8f;
+      --text: #c8c8e8;
+      --dim: #5a5a8a;
+      --glow: rgba(124, 106, 247, 0.35);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Share Tech Mono', monospace;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      overflow: hidden;
+    }
+
+    /* Scanlines */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.07) 2px,
+        rgba(0,0,0,0.07) 4px
+      );
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    /* Grid bg */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 40px 40px;
+      opacity: 0.3;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .window {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: 0 0 40px var(--glow), inset 0 0 30px rgba(124,106,247,0.04);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .titlebar {
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      padding: 8px 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.4);
+    }
+
+    .titlebar span {
+      font-family: 'VT323', monospace;
+      font-size: 1rem;
+      color: #fff;
+      margin-left: auto;
+      margin-right: auto;
+      letter-spacing: 2px;
+    }
+
+    .body {
+      padding: 2.5rem 2rem;
+    }
+
+    .icon {
+      font-size: 4rem;
+      display: block;
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 0 12px var(--accent));
+      animation: pulse 2.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { filter: drop-shadow(0 0 8px var(--accent)); transform: scale(1); }
+      50% { filter: drop-shadow(0 0 20px var(--accent)); transform: scale(1.05); }
+    }
+
+    h1 {
+      font-family: 'VT323', monospace;
+      font-size: 2.8rem;
+      color: #fff;
+      letter-spacing: 4px;
+      text-shadow: 0 0 20px var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      color: var(--accent2);
+      font-size: 0.8rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 1.5rem 0;
+    }
+
+    .log {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: 1rem 1.2rem;
+      text-align: left;
+      font-size: 0.78rem;
+      line-height: 1.9;
+    }
+
+    .log-line { display: flex; gap: 0.8rem; }
+    .log-time { color: var(--dim); flex-shrink: 0; }
+    .log-ok { color: #6af7a0; }
+    .log-warn { color: #f7d06a; }
+    .log-err { color: var(--accent2); }
+
+    .blink {
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0; } }
+
+    .footer {
+      margin-top: 2rem;
+      font-size: 0.7rem;
+      color: var(--dim);
+      letter-spacing: 2px;
+    }
+
+    .footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .footer a:hover { text-shadow: 0 0 8px var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="window">
+      <div class="titlebar">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <span>reader.seusomelier.com.br — terminal</span>
+      </div>
+      <div class="body">
+        <span class="icon">📖</span>
+        <h1>MANUTENÇÃO</h1>
+        <p class="subtitle">servidor temporariamente offline</p>
+
+        <div class="log">
+          <div class="log-line">
+            <span class="log-time">[sys]</span>
+            <span class="log-ok">✓ seanime-server ............. online</span>
+          </div>
+          <div class="log-line">
+            <span class="log-time">[sys]</span>
+            <span class="log-warn">⚠ sorayomi-server ........... offline</span>
+          </div>
+          <div class="log-line">
+            <span class="log-time">[sys]</span>
+            <span class="log-ok">✓ cloudflare-tunnel ......... online</span>
+          </div>
+          <div class="log-line">
+            <span class="log-time">[sys]</span>
+            <span class="log-err">✗ reader.seusomelier.com.br .. unreachable</span>
+          </div>
+          <div class="log-line" style="margin-top:0.5rem">
+            <span class="log-time">[msg]</span>
+            <span style="color:var(--text)">voltando em breve<span class="blink">_</span></span>
+          </div>
+        </div>
+
+        <hr class="divider" />
+
+        <p style="font-size:0.78rem; color:var(--dim); line-height:1.7;">
+          O servidor de mangá está em manutenção.<br/>
+          Volte em instantes — a página recarregará assim que o serviço estiver de volta.
+        </p>
+      </div>
+    </div>
+
+    <p class="footer">
+      ← voltar para <a href="https://seusomelier.com.br">seusomelier.com.br</a>
+    </p>
+  </div>
+
+  <script>
+    // Tenta recarregar automaticamente a cada 30s para detectar quando o servidor voltar
+    setTimeout(() => location.reload(), 30000);
+  </script>
+</body>
+</html>
