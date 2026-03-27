@@ -33,7 +33,6 @@
       overflow: hidden;
     }
 
-    /* Scanlines */
     body::before {
       content: '';
       position: fixed;
@@ -49,7 +48,6 @@
       z-index: 10;
     }
 
-    /* Grid bg */
     body::after {
       content: '';
       position: fixed;
@@ -193,11 +191,11 @@
         <div class="log">
           <div class="log-line">
             <span class="log-time">[sys]</span>
-            <span class="log-ok">✓ seanime-server ............. online</span>
+            <span class="log-warn">✓ watch-server ............. offline</span>
           </div>
           <div class="log-line">
             <span class="log-time">[sys]</span>
-            <span class="log-warn">⚠ sorayomi-server ........... offline</span>
+            <span class="log-warn">⚠ reader-server ........... offline</span>
           </div>
           <div class="log-line">
             <span class="log-time">[sys]</span>
@@ -228,7 +226,6 @@
   </div>
 
   <script>
-    // Tenta recarregar automaticamente a cada 30s para detectar quando o servidor voltar
     setTimeout(() => location.reload(), 30000);
   </script>
 </body>
