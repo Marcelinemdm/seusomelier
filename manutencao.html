@@ -21,17 +21,20 @@
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    html, body {
+      min-height: 100%;
+    }
+
     body {
       background: var(--bg);
       color: var(--text);
       font-family: 'Share Tech Mono', monospace;
-      min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 2rem;
-      overflow: hidden;
+      padding: 2rem 1.25rem;
     }
 
     body::before {
@@ -89,6 +92,7 @@
       width: 10px; height: 10px;
       border-radius: 50%;
       background: rgba(255,255,255,0.4);
+      flex-shrink: 0;
     }
 
     .titlebar span {
@@ -98,14 +102,17 @@
       margin-left: auto;
       margin-right: auto;
       letter-spacing: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .body {
-      padding: 2.5rem 2rem;
+      padding: 2rem 1.5rem;
     }
 
     .icon {
-      font-size: 4rem;
+      font-size: 3.5rem;
       display: block;
       margin-bottom: 1rem;
       filter: drop-shadow(0 0 12px var(--accent));
@@ -119,7 +126,7 @@
 
     h1 {
       font-family: 'VT323', monospace;
-      font-size: 2.8rem;
+      font-size: clamp(2rem, 8vw, 2.8rem);
       color: #fff;
       letter-spacing: 4px;
       text-shadow: 0 0 20px var(--accent);
@@ -128,7 +135,7 @@
 
     .subtitle {
       color: var(--accent2);
-      font-size: 0.8rem;
+      font-size: clamp(0.65rem, 2.5vw, 0.8rem);
       letter-spacing: 3px;
       text-transform: uppercase;
       margin-bottom: 2rem;
@@ -144,13 +151,14 @@
       background: var(--bg);
       border: 1px solid var(--border);
       border-radius: 2px;
-      padding: 1rem 1.2rem;
+      padding: 1rem 1rem;
       text-align: left;
-      font-size: 0.78rem;
+      font-size: clamp(0.68rem, 2.2vw, 0.78rem);
       line-height: 1.9;
+      overflow-x: auto;
     }
 
-    .log-line { display: flex; gap: 0.8rem; }
+    .log-line { display: flex; gap: 0.6rem; }
     .log-time { color: var(--dim); flex-shrink: 0; }
     .log-ok { color: #6af7a0; }
     .log-warn { color: #f7d06a; }
@@ -161,9 +169,15 @@
     }
     @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0; } }
 
+    .desc {
+      font-size: clamp(0.72rem, 2.2vw, 0.78rem);
+      color: var(--dim);
+      line-height: 1.7;
+    }
+
     .footer {
-      margin-top: 2rem;
-      font-size: 0.7rem;
+      margin-top: 1.5rem;
+      font-size: clamp(0.65rem, 2vw, 0.7rem);
       color: var(--dim);
       letter-spacing: 2px;
     }
@@ -192,23 +206,23 @@
         <div class="log">
           <div class="log-line">
             <span class="log-time">[sys]</span>
-            <span class="log-warn">⚠  watch-server ............. offline</span>
+            <span class="log-warn">⚠ watch-server .......... offline</span>
           </div>
           <div class="log-line">
             <span class="log-time">[sys]</span>
-            <span class="log-warn">⚠ reader-server ........... offline</span>
+            <span class="log-warn">⚠ reader-server ......... offline</span>
           </div>
           <div class="log-line">
             <span class="log-time">[sys]</span>
-            <span class="log-ok">✓ cloudflare-tunnel ......... online</span>
+            <span class="log-ok">✓ cloudflare-tunnel ..... online</span>
           </div>
           <div class="log-line">
             <span class="log-time">[sys]</span>
-            <span class="log-err">✗ reader.seusomelier.com.br .. unreachable</span>
+            <span class="log-err">✗ reader.seusomelier .... unreachable</span>
           </div>
-                    <div class="log-line">
+          <div class="log-line">
             <span class="log-time">[sys]</span>
-            <span class="log-err">✗ watch.seusomelier.com.br .. unreachable</span>
+            <span class="log-err">✗ watch.seusomelier ..... unreachable</span>
           </div>
           <div class="log-line" style="margin-top:0.5rem">
             <span class="log-time">[msg]</span>
@@ -218,21 +232,22 @@
 
         <hr class="divider" />
 
-        <p style="font-size:0.78rem; color:var(--dim); line-height:1.7;">
+        <p class="desc">
           Os servidores estão em manutenção.<br/>
           Volte em instantes — a página recarregará assim que o serviço estiver de volta.
         </p>
-        <p class="footer">
-      ← voltar para <a href="https://seusomelier.com.br">seusomelier.com.br</a>
-    </p>
       </div>
     </div>
+
+    <p class="footer">
+      ← voltar para <a href="https://seusomelier.com.br">seusomelier.com.br</a>
+    </p>
   </div>
 
-<script>
-  setTimeout(() => {
-    window.location.href = 'https://reader.seusomelier.com.br';
-  }, 30000);
-</script>
+  <script>
+    setTimeout(() => {
+      window.location.href = 'https://reader.seusomelier.com.br';
+    }, 30000);
+  </script>
 </body>
 </html>
