@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="img/472684011_18494965459009287_7220539255364855977_n (Edit).png" type="image/x-icon">
   <title>Reader — Manutenção</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap');
@@ -181,7 +182,7 @@
         <div class="dot"></div>
         <div class="dot"></div>
         <div class="dot"></div>
-        <span>reader.seusomelier.com.br — terminal</span>
+        <span>reader.seusomelier.com.br</span>
       </div>
       <div class="body">
         <span class="icon">📖</span>
@@ -191,7 +192,7 @@
         <div class="log">
           <div class="log-line">
             <span class="log-time">[sys]</span>
-            <span class="log-warn">✓ watch-server ............. offline</span>
+            <span class="log-warn">⚠  watch-server ............. offline</span>
           </div>
           <div class="log-line">
             <span class="log-time">[sys]</span>
@@ -205,6 +206,10 @@
             <span class="log-time">[sys]</span>
             <span class="log-err">✗ reader.seusomelier.com.br .. unreachable</span>
           </div>
+                    <div class="log-line">
+            <span class="log-time">[sys]</span>
+            <span class="log-err">✗ watch.seusomelier.com.br .. unreachable</span>
+          </div>
           <div class="log-line" style="margin-top:0.5rem">
             <span class="log-time">[msg]</span>
             <span style="color:var(--text)">voltando em breve<span class="blink">_</span></span>
@@ -214,19 +219,20 @@
         <hr class="divider" />
 
         <p style="font-size:0.78rem; color:var(--dim); line-height:1.7;">
-          O servidor de mangá está em manutenção.<br/>
+          Os servidores estão em manutenção.<br/>
           Volte em instantes — a página recarregará assim que o serviço estiver de volta.
         </p>
-      </div>
-    </div>
-
-    <p class="footer">
+        <p class="footer">
       ← voltar para <a href="https://seusomelier.com.br">seusomelier.com.br</a>
     </p>
+      </div>
+    </div>
   </div>
 
-  <script>
-    setTimeout(() => location.reload(), 30000);
-  </script>
+<script>
+  setTimeout(() => {
+    window.location.href = 'https://reader.seusomelier.com.br';
+  }, 30000);
+</script>
 </body>
 </html>
