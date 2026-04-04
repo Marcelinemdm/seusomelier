@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://y2k.seusomelier.com.br/sitemap.xml
+Sitemap: https://www.seusomelier.com.br/sitemap.xml
