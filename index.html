@@ -36,49 +36,43 @@
       --muted: #9ca3af;
       --accent: #25d366;
       --avatar: #ededed;
-      --card-gap: 32px;
       --radius-full: 9999px;
-      --space-1: 4px;
-      --space-2: 8px;
-      --space-3: 12px;
-      --space-4: 16px;
-      --space-5: 20px;
-      --space-6: 24px;
-      --space-8: 32px;
-      --space-10: 40px;
-      --space-12: 48px;
-      --text-sm: clamp(.95rem, .9rem + .2vw, 1rem);
-      --text-base: clamp(1rem, .95rem + .3vw, 1.125rem);
-      --text-lg: clamp(1.35rem, 1.2rem + .8vw, 1.8rem);
-      --text-xl: clamp(2rem, 1.7rem + 1.5vw, 2.7rem);
       --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { min-height: 100%; }
+    html, body { height: 100%; overflow: hidden; }
     body {
       font-family: 'Inter', sans-serif;
       background: var(--bg);
       color: var(--text);
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
     }
 
     .app {
-      min-height: 100vh;
+      height: 100vh;
       background: linear-gradient(to bottom, var(--bg-top), var(--bg));
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
     }
 
     .topbar {
-      height: 92px;
+      height: clamp(72px, 12vh, 92px);
       display: flex;
       align-items: center;
-      gap: var(--space-5);
-      padding: 0 var(--space-6);
+      gap: clamp(12px, 2vw, 20px);
+      padding: 0 clamp(16px, 4vw, 24px);
       border-bottom: 1px solid var(--line);
+      flex-shrink: 0;
     }
 
     .back-btn {
-      width: 44px;
-      height: 44px;
+      width: clamp(40px, 11vw, 44px);
+      height: clamp(40px, 11vw, 44px);
       border: 0;
       background: transparent;
       color: var(--text);
@@ -86,34 +80,45 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
+      flex-shrink: 0;
     }
 
     .title {
-      font-size: var(--text-xl);
+      font-size: clamp(1.5rem, 6vw, 2.7rem);
       font-weight: 500;
       letter-spacing: -.02em;
+      flex: 1;
+      text-align: center;
     }
 
-    .content {
-      width: min(760px, 100%);
+    .main-content {
+      flex: 1;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      padding: clamp(20px, 5vw, 40px) clamp(24px, 5vw, 24px) clamp(32px, 8vw, 48px);
+      width: 100%;
+      max-width: 760px;
       margin: 0 auto;
-      padding: var(--space-10) var(--space-6) var(--space-12);
+      box-sizing: border-box;
     }
 
     .hero {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: var(--space-4);
+      padding-top: clamp(12px, 3vw, 16px);
+      margin-bottom: clamp(32px, 8vw, 64px);
     }
 
     .avatar {
-      width: min(52vw, 450px);
+      width: clamp(200px, min(52vw, 80vw), 450px);
       aspect-ratio: 1 / 1;
       border-radius: var(--radius-full);
       overflow: hidden;
       background: var(--avatar);
       box-shadow: 0 0 0 1px rgba(255,255,255,.04);
+      max-width: 90vw;
+      margin-bottom: clamp(24px, 6vw, 32px);
     }
 
     .avatar img {
@@ -124,30 +129,28 @@
     }
 
     .edit {
-      display: inline-block;
-      margin-top: var(--space-8);
       color: var(--accent);
-      font-size: clamp(1.3rem, 1.15rem + .6vw, 1.8rem);
+      font-size: clamp(1.1rem, 4vw, 1.8rem);
       font-weight: 500;
       text-decoration: none;
     }
 
     .info-list {
-      margin-top: 110px;
       display: grid;
-      gap: 52px;
+      gap: clamp(32px, 8vw, 52px);
+      margin-bottom: clamp(48px, 12vw, 96px);
     }
 
     .info-item {
       display: grid;
-      grid-template-columns: 52px 1fr;
-      gap: var(--space-5);
+      grid-template-columns: clamp(36px, 10vw, 52px) 1fr;
+      gap: clamp(12px, 3vw, 20px);
       align-items: start;
     }
 
     .icon {
-      width: 52px;
-      height: 52px;
+      width: clamp(36px, 10vw, 52px);
+      height: clamp(36px, 10vw, 52px);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -156,44 +159,45 @@
     }
 
     .label {
-      font-size: clamp(1.9rem, 1.65rem + .8vw, 2.4rem);
+      font-size: clamp(1.4rem, 6vw, 2.4rem);
       line-height: 1.1;
       font-weight: 400;
       color: var(--text);
-      margin-bottom: var(--space-2);
+      margin-bottom: clamp(4px, 1vw, 8px);
     }
 
     .value {
-      font-size: clamp(1.2rem, 1.05rem + .6vw, 1.7rem);
+      font-size: clamp(1rem, 4vw, 1.7rem);
       line-height: 1.3;
       color: var(--muted);
       font-weight: 400;
+      word-break: break-word;
     }
 
     svg {
-      width: 34px;
-      height: 34px;
+      width: clamp(24px, 6vw, 34px);
+      height: clamp(24px, 6vw, 34px);
       stroke: currentColor;
     }
 
     .links-section {
-      margin-top: var(--space-12);
+      margin-top: clamp(48px, 12vw, 96px);
     }
 
     .links-title {
-      font-size: var(--text-lg);
+      font-size: clamp(1.2rem, 5vw, 1.8rem);
       color: var(--text);
-      margin-bottom: var(--space-6);
+      margin-bottom: clamp(20px, 5vw, 24px);
     }
 
     .links-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: var(--space-6);
+      grid-template-columns: repeat(auto-fit, minmax(clamp(240px, 45vw, 280px), 1fr));
+      gap: clamp(16px, 4vw, 24px);
     }
 
     .link-item {
-      padding: var(--space-4);
+      padding: clamp(12px, 3vw, 16px);
       background: rgba(255,255,255,.03);
       border: 1px solid var(--line);
       border-radius: var(--radius-full);
@@ -207,31 +211,33 @@
     }
 
     .link-name {
-      font-size: var(--text-sm);
+      font-size: clamp(0.75rem, 2.5vw, 0.875rem);
       color: var(--muted);
-      margin-bottom: var(--space-1);
+      margin-bottom: clamp(4px, 1vw, 8px);
       text-transform: uppercase;
       letter-spacing: .05em;
     }
 
     .link-url {
       color: var(--accent);
-      font-size: var(--text-base);
+      font-size: clamp(0.9rem, 3vw, 1rem);
       word-break: break-all;
       font-weight: 500;
+      line-height: 1.3;
     }
 
     .add-link {
-      margin-top: var(--space-8);
-      padding: var(--space-4) var(--space-6);
+      margin-top: clamp(24px, 6vw, 32px);
+      padding: clamp(12px, 3vw, 16px) clamp(20px, 5vw, 24px);
       background: transparent;
       border: 1px dashed var(--muted);
       border-radius: var(--radius-full);
       color: var(--muted);
       cursor: pointer;
-      font-size: var(--text-base);
+      font-size: clamp(0.9rem, 3vw, 1rem);
       transition: all .2s ease;
       text-align: center;
+      width: 100%;
     }
 
     .add-link:hover {
@@ -240,44 +246,29 @@
       background: rgba(37,211,102,.05);
     }
 
+    /* Scrollbar custom */
+    .main-content::-webkit-scrollbar {
+      width: 4px;
+    }
+    .main-content::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .main-content::-webkit-scrollbar-thumb {
+      background: var(--muted);
+      border-radius: 2px;
+    }
+
     @media (max-width: 640px) {
-      .topbar {
-        height: 78px;
-        padding: 0 var(--space-4);
-      }
-
-      .content {
-        padding: var(--space-8) var(--space-4) var(--space-10);
-      }
-
-      .avatar {
-        width: min(70vw, 320px);
-      }
-
-      .info-list {
-        margin-top: 80px;
-        gap: 40px;
-      }
-
-      .info-item {
-        grid-template-columns: 40px 1fr;
-        gap: var(--space-4);
-      }
-
-      .icon {
-        width: 40px;
-        height: 40px;
-      }
-
-      svg {
-        width: 28px;
-        height: 28px;
-      }
-
-      .links-grid {
+      .topbar { gap: clamp(12px, 4vw, 16px); }
+      .info-list { margin-top: clamp(40px, 10vw, 80px); }
+      .links-grid { 
         grid-template-columns: 1fr;
-        gap: var(--space-4);
+        gap: clamp(12px, 4vw, 16px);
       }
+    }
+
+    @media (max-height: 700px) {
+      .main-content { padding-bottom: clamp(20px, 5vw, 32px); }
     }
   </style>
 </head>
@@ -292,7 +283,7 @@
       <h1 class="title">Perfil</h1>
     </header>
 
-    <main class="content">
+    <main class="main-content">
       <section class="hero" aria-label="Foto de perfil">
         <div class="avatar">
           <img src="/img/whitek.jpg" alt="Foto de perfil" loading="lazy" />
