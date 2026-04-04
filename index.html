@@ -1,40 +1,373 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- SEO -->
-<meta name="description" content="Terminal interativo estético Y2K. Digite 'help' para explorar."/>
-<meta name="robots" content="index, follow"/>
-<link rel="canonical" href="https://y2k.seusomelier.com.br/"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SeuSomelier</title>
+  <link rel="shortcut icon" href="/img/whitek.jpg" type="image/x-icon">
 
-<!-- Open Graph (Discord, WhatsApp, Twitter) -->
-<meta property="og:title"       content="y2k — seusomelier"/>
-<meta property="og:description" content="Terminal interativo estético Y2K. Digite 'help' para explorar."/>
-<meta property="og:url"         content="https://y2k.seusomelier.com.br/"/>
-<meta property="og:type"        content="website"/>
-<meta property="og:image"       content="https://y2k.seusomelier.com.br/img/diva.jpg"/>
+  <!-- SEO -->
+  <meta name="description" content="Terminal interativo estético Y2K. Digite 'help' para explorar."/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://seusomelier.com.br/"/>
 
-<!-- Twitter/X -->
-<meta name="twitter:card"        content="summary_large_image"/>
-<meta name="twitter:title"       content="y2k — seusomelier"/>
-<meta name="twitter:description" content="Terminal interativo estético Y2K."/>
-<meta name="twitter:image"       content="https://y2k.seusomelier.com.br/img/diva.jpg"/>
+  <!-- Open Graph (Discord, WhatsApp, Twitter) -->
+  <meta property="og:title"       content="y2k — seusomelier"/>
+  <meta property="og:description" content="Terminal interativo estético Y2K. Digite 'help' para explorar."/>
+  <meta property="og:url"         content="https://seusomelier.com.br/"/>
+  <meta property="og:type"        content="website"/>
+  <meta property="og:image"       content="https://seusomelier.com.br/img/diva.jpg"/>
 
-    <title>Seu Somelier</title>
-    <link rel="shortcut icon" href="/img/taylor.jpg" type="image/x-icon">
-    <link rel="stylesheet" href="/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Twitter/X -->
+  <meta name="twitter:card"        content="summary_large_image"/>
+  <meta name="twitter:title"       content="y2k — seusomelier"/>
+  <meta name="twitter:description" content="Terminal interativo estético Y2K."/>
+  <meta name="twitter:image"       content="https://seusomelier.com.br/img/diva.jpg"/>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #09131c;
+      --bg-top: #0b141b;
+      --line: rgba(255,255,255,.08);
+      --text: #f3f4f6;
+      --muted: #9ca3af;
+      --accent: #25d366;
+      --avatar: #ededed;
+      --card-gap: 32px;
+      --radius-full: 9999px;
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 20px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --space-10: 40px;
+      --space-12: 48px;
+      --text-sm: clamp(.95rem, .9rem + .2vw, 1rem);
+      --text-base: clamp(1rem, .95rem + .3vw, 1.125rem);
+      --text-lg: clamp(1.35rem, 1.2rem + .8vw, 1.8rem);
+      --text-xl: clamp(2rem, 1.7rem + 1.5vw, 2.7rem);
+      --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { min-height: 100%; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .app {
+      min-height: 100vh;
+      background: linear-gradient(to bottom, var(--bg-top), var(--bg));
+    }
+
+    .topbar {
+      height: 92px;
+      display: flex;
+      align-items: center;
+      gap: var(--space-5);
+      padding: 0 var(--space-6);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .back-btn {
+      width: 44px;
+      height: 44px;
+      border: 0;
+      background: transparent;
+      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .title {
+      font-size: var(--text-xl);
+      font-weight: 500;
+      letter-spacing: -.02em;
+    }
+
+    .content {
+      width: min(760px, 100%);
+      margin: 0 auto;
+      padding: var(--space-10) var(--space-6) var(--space-12);
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: var(--space-4);
+    }
+
+    .avatar {
+      width: min(52vw, 450px);
+      aspect-ratio: 1 / 1;
+      border-radius: var(--radius-full);
+      overflow: hidden;
+      background: var(--avatar);
+      box-shadow: 0 0 0 1px rgba(255,255,255,.04);
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .edit {
+      display: inline-block;
+      margin-top: var(--space-8);
+      color: var(--accent);
+      font-size: clamp(1.3rem, 1.15rem + .6vw, 1.8rem);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .info-list {
+      margin-top: 110px;
+      display: grid;
+      gap: 52px;
+    }
+
+    .info-item {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: var(--space-5);
+      align-items: start;
+    }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      opacity: .95;
+    }
+
+    .label {
+      font-size: clamp(1.9rem, 1.65rem + .8vw, 2.4rem);
+      line-height: 1.1;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: var(--space-2);
+    }
+
+    .value {
+      font-size: clamp(1.2rem, 1.05rem + .6vw, 1.7rem);
+      line-height: 1.3;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    svg {
+      width: 34px;
+      height: 34px;
+      stroke: currentColor;
+    }
+
+    .links-section {
+      margin-top: var(--space-12);
+    }
+
+    .links-title {
+      font-size: var(--text-lg);
+      color: var(--text);
+      margin-bottom: var(--space-6);
+    }
+
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-6);
+    }
+
+    .link-item {
+      padding: var(--space-4);
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-full);
+      transition: all var(--transition-interactive);
+    }
+
+    .link-item:hover {
+      background: rgba(255,255,255,.06);
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .link-name {
+      font-size: var(--text-sm);
+      color: var(--muted);
+      margin-bottom: var(--space-1);
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+
+    .link-url {
+      color: var(--accent);
+      font-size: var(--text-base);
+      word-break: break-all;
+      font-weight: 500;
+    }
+
+    .add-link {
+      margin-top: var(--space-8);
+      padding: var(--space-4) var(--space-6);
+      background: transparent;
+      border: 1px dashed var(--muted);
+      border-radius: var(--radius-full);
+      color: var(--muted);
+      cursor: pointer;
+      font-size: var(--text-base);
+      transition: all .2s ease;
+      text-align: center;
+    }
+
+    .add-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(37,211,102,.05);
+    }
+
+    @media (max-width: 640px) {
+      .topbar {
+        height: 78px;
+        padding: 0 var(--space-4);
+      }
+
+      .content {
+        padding: var(--space-8) var(--space-4) var(--space-10);
+      }
+
+      .avatar {
+        width: min(70vw, 320px);
+      }
+
+      .info-list {
+        margin-top: 80px;
+        gap: 40px;
+      }
+
+      .info-item {
+        grid-template-columns: 40px 1fr;
+        gap: var(--space-4);
+      }
+
+      .icon {
+        width: 40px;
+        height: 40px;
+      }
+
+      svg {
+        width: 28px;
+        height: 28px;
+      }
+
+      .links-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+      }
+    }
+  </style>
 </head>
 <body>
-    <div id="terminal">
-        <div id="output"></div>
-        <div class="input-line">
-            <span class="prompt">seusomelier@archlinux ~&gt;</span>
-            <input type="text" id="command-input" autofocus spellcheck="false">
+  <div class="app">
+    <header class="topbar">
+      <button class="back-btn" aria-label="Voltar">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M15 18l-6-6 6-6"/>
+        </svg>
+      </button>
+      <h1 class="title">Perfil</h1>
+    </header>
+
+    <main class="content">
+      <section class="hero" aria-label="Foto de perfil">
+        <div class="avatar">
+          <img src="/img/whitek.jpg" alt="Foto de perfil" loading="lazy" />
         </div>
-    </div>
-    <script src="testscript.js" defer></script>
+        <a href="#" class="edit">Editar</a>
+      </section>
+
+      <section class="info-list" aria-label="Informações do perfil">
+        <article class="info-item">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21a8 8 0 0 0-16 0"/>
+              <circle cx="12" cy="8" r="4"/>
+            </svg>
+          </div>
+          <div>
+            <h2 class="label">Nome</h2>
+            <p class="value">Luiz Fernando</p>
+          </div>
+        </article>
+
+        <article class="info-item">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"/>
+              <path d="M12 8h.01"/>
+              <path d="M11 12h1v4h1"/>
+            </svg>
+          </div>
+          <div>
+            <h2 class="label">Recado</h2>
+            <p class="value">SPOILER: NO FINAL EU MORRO</p>
+          </div>
+        </article>
+
+        <article class="info-item">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.63 2.62a2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6.09 6.09l1.46-1.29a2 2 0 0 1 2.11-.45c.84.3 1.72.51 2.62.63A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </div>
+          <div>
+            <h2 class="label">Telefone</h2>
+            <p class="value">+55 73 9***-****</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="links-section" aria-label="Links do perfil">
+        <h2 class="links-title">Links</h2>
+        <div class="links-grid">
+          <div class="link-item">
+            <div class="link-name">YaIndex</div>
+            <a href="https://yaindex.seusomelier.com.br" class="link-url" target="_blank" rel="noopener noreferrer">yaindex.seusomelier.com.br</a>
+          </div>
+          <div class="link-item">
+            <div class="link-name">Reader</div>
+            <a href="https://reader.seusomelier.com.br" class="link-url" target="_blank" rel="noopener noreferrer">reader.seusomelier.com.br</a>
+          </div>
+          <div class="link-item">
+            <div class="link-name">Y2K Terminal</div>
+            <a href="https://y2k.seusomelier.com.br" class="link-url" target="_blank" rel="noopener noreferrer">y2k.seusomelier.com.br</a>
+          </div>
+          <div class="link-item">
+            <div class="link-name">Watch</div>
+            <a href="https://watch.seusomelier.com.br" class="link-url" target="_blank" rel="noopener noreferrer">watch.seusomelier.com.br</a>
+          </div>
+          <div class="link-item">
+            <div class="link-name">HYTL</div>
+            <a href="https://hytl.seusomelier.com.br" class="link-url" target="_blank" rel="noopener noreferrer">hytl.seusomelier.com.br</a>
+          </div>
+        </div>
+        <button class="add-link">Adicionar links</button>
+      </section>
+    </main>
+  </div>
 </body>
 </html>

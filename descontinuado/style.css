@@ -1,4 +1,4 @@
-:root {
+/* :root {
     --bg-color: #0d0d0d;
     --text-main: #e0e0e0;
     --cyan: #5de4c7;
@@ -112,7 +112,7 @@ body::before {
     font-size: 12px;
     margin-top: 5px;
 }
-/* ── Spotify Widget (Discord-style) ─────────────── */
+/* ── Spotify Widget (Discord-style)
 #spotify-widget {
     position: fixed;
     bottom: 20px;
@@ -253,4 +253,4 @@ a:hover { color: var(--cyan); }
     .info-line { justify-content: center; }
     .help-grid { grid-template-columns: 1fr; gap: 5px; }
     .cmd-desc { padding-left: 20px; margin-bottom: 10px; }
-}
+} */
