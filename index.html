@@ -1,78 +1,236 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="dark">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Luiz Fernando</title>
-  <link rel="shortcut icon" href="img/472684011_18494965459009287_7220539255364855977_n (Edit).png" type="image/x-icon">
+  <title>@seusomelier</title>
 
   <style>
+    @import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=VT323&display=swap");
+
     :root {
-      --bg: #0f1115;
-      --surface: #171a21;
-      --border: rgba(255,255,255,0.08);
-      --shadow: 0 20px 50px rgba(0,0,0,0.35);
-      --radius: 20px;
-      --space-1: 0.25rem;
-      --space-2: 0.5rem;
-      --space-4: 1rem;
-      --space-6: 1.5rem;
-      --space-8: 2rem;
-      --space-12: 3rem;
+      --bg: #a39aa5;
+      --text: #27232a;
+      --border: rgba(20, 16, 21, 0.88);
+      --card: rgba(174, 166, 177, 0.12);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html, body {
-      min-height: 100%;
+    * {
+      box-sizing: border-box;
     }
 
     body {
-      min-height: 100dvh;
+      min-height: 100vh;
+      margin: 0;
       display: grid;
       place-items: center;
-      padding: clamp(var(--space-4), 4vw, var(--space-12));
+      overflow-x: hidden;
+      color: var(--text);
+      font-family: "Space Mono", monospace;
       background:
-        radial-gradient(circle at top, rgba(90, 110, 160, 0.18), transparent 35%),
-        linear-gradient(180deg, #11141b 0%, var(--bg) 100%);
-      font-family: Arial, sans-serif;
+        radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.12), transparent 33rem),
+        linear-gradient(rgba(162, 153, 166, 0.93), rgba(162, 153, 166, 0.93)),
+        url("")
+          center / cover fixed;
     }
 
-    .frame {
-      width: min(92vw, 640px);
-      padding: clamp(var(--space-4), 2vw, var(--space-8));
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.22;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+      mix-blend-mode: multiply;
+    }
+
+    .page {
+      width: min(100% - 42px, 540px);
+      padding: 16px 0 30px;
+      text-align: center;
+    }
+
+    .profile {
+      margin-bottom: 32px;
+    }
+
+    .avatar {
+      width: 96px;
+      height: 96px;
+      display: block;
+      object-fit: cover;
+      margin: 0 auto 14px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+    }
+
+    h1 {
+      margin: 0;
+      color: #fff;
+      font-family: "VT323", monospace;
+      font-size: clamp(2rem, 8vw, 2.7rem);
+      line-height: 0.9;
+      letter-spacing: 0.5px;
+      text-shadow: 1px 2px 0 rgba(45, 39, 47, 0.25);
+    }
+
+    .bio {
+      margin: 11px 0 0;
+      color: #fff;
+      font-size: 0.92rem;
+      letter-spacing: 0.2px;
+      text-shadow: 1px 1px 0 rgba(45, 39, 47, 0.16);
+    }
+
+    .links {
+      display: grid;
+      gap: 14px;
+    }
+
+    .link-card {
+      position: relative;
+      min-height: 67px;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 12px 54px;
+      overflow: hidden;
+      border: 1.5px solid var(--border);
+      border-radius: 999px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.95rem;
+      letter-spacing: -0.3px;
+      background: var(--card);
+      backdrop-filter: blur(2px);
+      transition: transform 160ms ease, background 160ms ease;
     }
 
-    .frame img {
-      display: block;
-      width: min(100%, 500px);
-      height: auto;
-      object-fit: contain;
-      border-radius: 12px;
+    .link-card:hover,
+    .link-card:focus-visible {
+      transform: translateY(-2px);
+      background: rgba(224, 218, 226, 0.25);
+      outline: none;
     }
 
-    @media (max-width: 480px) {
-      .frame {
-        width: 100%;
-        border-radius: 16px;
+    .link-card:active {
+      transform: translateY(0);
+    }
+
+    .link-avatar {
+      position: absolute;
+      left: 10px;
+      width: 44px;
+      height: 44px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .more {
+      position: absolute;
+      right: 17px;
+      top: 50%;
+      transform: translateY(-56%);
+      font-size: 1.35rem;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: 1px;
+      color: rgba(39, 35, 42, 0.72);
+    }
+
+    @media (max-width: 420px) {
+      .page {
+        width: min(100% - 28px, 540px);
       }
 
-      .frame img {
-        width: 100%;
+      .profile {
+        margin-bottom: 28px;
+      }
+
+      .link-card {
+        min-height: 62px;
+        font-size: 0.86rem;
+      }
+
+      .avatar {
+        width: 86px;
+        height: 86px;
       }
     }
   </style>
 </head>
+
 <body>
-  <main class="frame">
-    <img src="/img/whitek.jpg" alt="white kanye" width="500" height="500" />
+  <main class="page">
+    <header class="profile">
+      <img class="avatar" src="img/1507104-kanye-west-wallpaper.jpg" alt="Avatar de Seu Sommelier" />
+      <h1>@seusomelier</h1>
+      <p class="bio">Eu bebi mas sou somelier</p>
+    </header>
+
+    <nav class="links" aria-label="Links de Seu Sommelier">
+      <a
+        class="link-card"
+        href="https://seusomelier.com.br"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img class="link-avatar" src="img/ce603a0499b07f0b52fd9d72261256eb.jpg" alt="" />
+        <span>eu</span>
+        <span class="more" aria-hidden="true">⋮</span>
+      </a>
+
+      <a
+        class="link-card"
+        href="https://steamcommunity.com/id/seusommelier/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img
+          class="link-avatar"
+          src="img/472684011_18494965459009287_7220539255364855977_n (Edit).png"
+          alt=""
+        />
+        <span>Steam</span>
+        <span class="more" aria-hidden="true">⋮</span>
+      </a>
+
+      <a
+        class="link-card"
+        href="https://open.spotify.com/playlist/2BG7MQ4o5cB1DfPUx0K8DF?si=e6ccd882f8474e44"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img
+          class="link-avatar"
+          src="img/Screenshot 2026-08-02 000801.png"
+          alt=""
+        />
+        <span>12:59</span>
+        <span class="more" aria-hidden="true">⋮</span>
+      </a>
+
+      <a
+        class="link-card"
+        href="https://meupc.net/perfil/SeuSomelier"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span>MEU PC</span>
+        <span class="more" aria-hidden="true">⋮</span>
+      </a>
+
+      <a
+        class="link-card"
+        href="https://valid.x86.fr/l9lv9u"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span>CPU-Z VALIDATOR</span>
+        <span class="more" aria-hidden="true">⋮</span>
+      </a>
+    </nav>
   </main>
 </body>
 </html>
