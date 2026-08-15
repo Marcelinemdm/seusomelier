@@ -109,9 +109,9 @@
       text-shadow: 1px 1px 0 rgba(54, 5, 5, 0.2);
     }
 
-    .links {
-      display: grid;
-      gap: 14px;
+    .links { 
+      display: grid; 
+      gap: 14px; 
     }
 
     .link-card {
@@ -166,6 +166,35 @@
       color: rgba(37, 21, 25, 0.72);
     }
 
+    .intro-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: grid;
+      place-items: center;
+      padding: 16px;
+      background: #000;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 450ms ease, visibility 450ms ease;
+    }
+
+    .intro-overlay.is-hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+
+    .intro-overlay img {
+      display: block;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      object-position: center;
+      background: #000;
+    }
+
     @media (max-width: 420px) {
       .page { width: min(100% - 28px, 540px); }
       .profile { margin-bottom: 28px; }
@@ -176,6 +205,10 @@
 </head>
 
 <body>
+  <div class="intro-overlay" id="introOverlay" aria-hidden="true">
+    <img src="img/directbygod.png" alt="" />
+  </div>
+
   <main class="page">
     <header class="profile">
       <img class="avatar" src="img/1507104-kanye-west-wallpaper.jpg" alt="Avatar de Seu Sommelier" />
@@ -187,28 +220,44 @@
       <a class="link-card" href="mailto:eu@seusomelier.com.br">
         <img class="link-avatar" src="img/ce603a0499b07f0b52fd9d72261256eb.jpg" alt="" />
         <span>eu</span>
+        <span class="more" aria-hidden="true">⋮</span>
       </a>
 
       <a class="link-card" href="https://open.spotify.com/user/21y377h4crhxufpfvftoihrtq?si=dc1ed887a9024305" target="_blank" rel="noopener noreferrer">
-        <img class="link-avatar" src="img/IMG-20250424-WA0015.jpg" alt="" />
+        <img class="link-avatar" src="img/ce603a0499b07f0b52fd9d72261256eb.jpg" alt="" />
         <span>seusomelier 2.31.104 on Spotify</span>
+        <span class="more" aria-hidden="true">⋮</span>
       </a>
 
       <a class="link-card" href="https://www.instagram.com/seusomelier/" target="_blank" rel="noopener noreferrer">
-        <img class="link-avatar" src="img/IMG-20250424-WA0015.jpg" alt="" />
+        <img class="link-avatar" src="img/ce603a0499b07f0b52fd9d72261256eb.jpg" alt="" />
         <span>Instagram<br><small>@seusomelier</small></span>
+        <span class="more" aria-hidden="true">⋮</span>
       </a>
 
       <a class="link-card" href="https://www.youtube.com/@seusomelier" target="_blank" rel="noopener noreferrer">
-        <img class="link-avatar" src="img/channels4_profile.jpg" alt="" />
+        <img class="link-avatar" src="img/ce603a0499b07f0b52fd9d72261256eb.jpg" alt="" />
         <span>@seusomelier no YouTube</span>
+        <span class="more" aria-hidden="true">⋮</span>
       </a>
 
       <a class="link-card" href="https://open.spotify.com/playlist/2BG7MQ4o5cB1DfPUx0K8DF?si=e6ccd882f8474e44" target="_blank" rel="noopener noreferrer">
         <img class="link-avatar" src="img/brat.png" alt="" />
         <span>white girls music<br><small>Playlist · but it's for the guys</small></span>
+        <span class="more" aria-hidden="true">⋮</span>
       </a>
     </nav>
   </main>
+
+  <script>
+    const introOverlay = document.getElementById("introOverlay");
+    const INTRO_DURATION = 2500;
+
+    window.addEventListener("load", () => {
+      window.setTimeout(() => {
+        introOverlay.classList.add("is-hidden");
+      }, INTRO_DURATION);
+    });
+  </script>
 </body>
 </html>
