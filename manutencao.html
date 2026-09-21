@@ -4,31 +4,34 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" href="img/472684011_18494965459009287_7220539255364855977_n (Edit).png" type="image/x-icon">
-  <title>Reader — Manutenção</title>
+  <title>Sistema em Manutenção</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600&display=swap');
 
     :root {
-      --bg: #0a0a0f;
-      --surface: #0f0f1a;
-      --border: #2a2a4a;
-      --accent: #7c6af7;
-      --accent2: #f76a8f;
-      --text: #c8c8e8;
-      --dim: #5a5a8a;
-      --glow: rgba(124, 106, 247, 0.35);
+      --bg: #09090b;
+      --surface: rgba(24, 24, 27, 0.7);
+      --border: rgba(255, 255, 255, 0.1);
+      --accent: #8b5cf6;
+      --accent-glow: rgba(139, 92, 246, 0.4);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      
+      --status-online: #10b981;
+      --status-offline: #ef4444;
+      --status-checking: #f59e0b;
+      --status-disc: #64748b;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    html, body {
-      min-height: 100%;
-    }
-
     body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Share Tech Mono', monospace;
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(circle at 15% 50%, rgba(139, 92, 246, 0.08), transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(16, 185, 129, 0.05), transparent 25%);
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
       min-height: 100dvh;
       display: flex;
       flex-direction: column;
@@ -37,217 +40,314 @@
       padding: 2rem 1.25rem;
     }
 
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background: repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 2px,
-        rgba(0,0,0,0.07) 2px,
-        rgba(0,0,0,0.07) 4px
-      );
-      pointer-events: none;
-      z-index: 10;
-    }
-
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(var(--border) 1px, transparent 1px),
-        linear-gradient(90deg, var(--border) 1px, transparent 1px);
-      background-size: 40px 40px;
-      opacity: 0.3;
-      z-index: 0;
-    }
-
     .container {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      max-width: 600px;
+      max-width: 650px;
       width: 100%;
+      z-index: 1;
     }
 
     .window {
       background: var(--surface);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border: 1px solid var(--border);
-      box-shadow: 0 0 40px var(--glow), inset 0 0 30px rgba(124,106,247,0.04);
-      border-radius: 4px;
+      border-radius: 12px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 
+                  0 0 0 1px rgba(255,255,255,0.05) inset,
+                  0 0 30px var(--accent-glow);
       overflow: hidden;
     }
 
     .titlebar {
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      padding: 8px 14px;
+      background: rgba(255, 255, 255, 0.03);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 16px;
       display: flex;
       align-items: center;
       gap: 8px;
     }
 
-    .dot {
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.4);
-      flex-shrink: 0;
-    }
+    .controls { display: flex; gap: 6px; }
+    .dot { width: 12px; height: 12px; border-radius: 50%; }
+    .dot.red { background: #ff5f56; }
+    .dot.yellow { background: #ffbd2e; }
+    .dot.green { background: #27c93f; }
 
     .titlebar span {
-      font-family: 'VT323', monospace;
-      font-size: 1rem;
-      color: #fff;
-      margin-left: auto;
-      margin-right: auto;
-      letter-spacing: 2px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin: 0 auto;
+      letter-spacing: 1px;
     }
 
-    .body {
-      padding: 2rem 1.5rem;
+    .body-content { padding: 2.5rem 2rem; text-align: center; }
+
+    .icon-wrapper {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 1.5rem;
     }
 
     .icon {
       font-size: 3.5rem;
       display: block;
-      margin-bottom: 1rem;
-      filter: drop-shadow(0 0 12px var(--accent));
-      animation: pulse 2.5s ease-in-out infinite;
+      animation: float 3s ease-in-out infinite;
     }
 
-    @keyframes pulse {
-      0%, 100% { filter: drop-shadow(0 0 8px var(--accent)); transform: scale(1); }
-      50% { filter: drop-shadow(0 0 20px var(--accent)); transform: scale(1.05); }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
 
     h1 {
-      font-family: 'VT323', monospace;
-      font-size: clamp(2rem, 8vw, 2.8rem);
-      color: #fff;
-      letter-spacing: 4px;
-      text-shadow: 0 0 20px var(--accent);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: clamp(1.8rem, 5vw, 2.2rem);
+      font-weight: 700;
+      letter-spacing: 2px;
       margin-bottom: 0.5rem;
+      background: linear-gradient(to right, #fff, #a78bfa);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .subtitle {
-      color: var(--accent2);
-      font-size: clamp(0.65rem, 2.5vw, 0.8rem);
-      letter-spacing: 3px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
       text-transform: uppercase;
+      letter-spacing: 2px;
       margin-bottom: 2rem;
+    }
+
+    .log {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: left;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: clamp(0.75rem, 2.5vw, 0.85rem);
+      line-height: 2;
+      overflow-x: auto;
+    }
+
+    .log-line {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px dashed rgba(255,255,255,0.05);
+      padding: 4px 0;
+    }
+    .log-line:last-child { border-bottom: none; }
+
+    .log-left { display: flex; gap: 10px; align-items: center; }
+    .log-time { color: #64748b; }
+    
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 700;
+    }
+
+    .status-badge::before {
+      content: '';
+      width: 8px; height: 8px;
+      border-radius: 50%;
+    }
+
+    .online { color: var(--status-online); }
+    .online::before { background: var(--status-online); box-shadow: 0 0 8px var(--status-online); }
+    
+    .offline { color: var(--status-offline); }
+    .offline::before { background: var(--status-offline); box-shadow: 0 0 8px var(--status-offline); }
+    
+    .checking { color: var(--status-checking); }
+    .checking::before { background: var(--status-checking); animation: pulse 1s infinite; }
+
+    .disc { color: var(--status-disc); text-decoration: line-through; }
+    .disc::before { background: var(--status-disc); }
+
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.4; }
+      100% { opacity: 1; }
     }
 
     .divider {
       border: none;
-      border-top: 1px solid var(--border);
-      margin: 1.5rem 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 2rem 0;
     }
-
-    .log {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 2px;
-      padding: 1rem 1rem;
-      text-align: left;
-      font-size: clamp(0.68rem, 2.2vw, 0.78rem);
-      line-height: 1.9;
-      overflow-x: auto;
-    }
-
-    .log-line { display: flex; gap: 0.6rem; }
-    .log-time { color: var(--dim); flex-shrink: 0; }
-    .log-ok { color: #6af7a0; }
-    .log-warn { color: #f7d06a; }
-    .log-err { color: var(--accent2); }
-
-    .blink {
-      animation: blink 1s step-end infinite;
-    }
-    @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0; } }
 
     .desc {
-      font-size: clamp(0.72rem, 2.2vw, 0.78rem);
-      color: var(--dim);
-      line-height: 1.7;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
     }
 
+    .desc strong { color: var(--text-main); }
+
     .footer {
-      margin-top: 1.5rem;
-      font-size: clamp(0.65rem, 2vw, 0.7rem);
-      color: var(--dim);
-      letter-spacing: 2px;
+      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
     }
 
     .footer a {
-      color: var(--accent);
+      color: var(--text-muted);
       text-decoration: none;
+      font-size: 0.8rem;
+      font-family: 'JetBrains Mono', monospace;
+      transition: color 0.3s, text-shadow 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 5px;
     }
-    .footer a:hover { text-shadow: 0 0 8px var(--accent); }
+
+    .footer a:hover {
+      color: var(--accent);
+      text-shadow: 0 0 10px var(--accent-glow);
+    }
+
   </style>
 </head>
 <body>
   <div class="container">
     <div class="window">
       <div class="titlebar">
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <span>reader.seusomelier.com.br</span>
+        <div class="controls">
+          <div class="dot red"></div>
+          <div class="dot yellow"></div>
+          <div class="dot green"></div>
+        </div>
+        <span>seusomelier.com.br</span>
       </div>
-      <div class="body">
-        <span class="icon">📖</span>
+      
+      <div class="body-content">
+        <div class="icon-wrapper">
+          <span class="icon">⚙️</span>
+        </div>
         <h1>MANUTENÇÃO</h1>
-        <p class="subtitle">servidor temporariamente offline</p>
+        <p class="subtitle">Servidor Temporariamente Offline</p>
 
-        <div class="log">
-          <div class="log-line">
-            <span class="log-time">[sys]</span>
-            <span class="log-warn">⚠ watch-server .......... descontinuado</span>
-          </div>
-          <div class="log-line">
-            <span class="log-time">[sys]</span>
-            <span class="log-warn">⚠ reader-server ......... offline</span>
-          </div>
-          <div class="log-line">
-            <span class="log-time">[sys]</span>
-            <span class="log-ok">✓ cloudflare-tunnel ..... online</span>
-          </div>
-          <div class="log-line">
-            <span class="log-time">[sys]</span>
-            <span class="log-err">✗ reader.seusomelier .... inalcançável</span>
-          </div>
-          <div class="log-line">
-            <span class="log-time">[sys]</span>
-            <span class="log-err">✗ watch.seusomelier ..... descontinuado</span>
-          </div>
-          <div class="log-line" style="margin-top:0.5rem">
-            <span class="log-time">[msg]</span>
-            <span style="color:var(--text)">voltando em breve<span class="blink">_</span></span>
-          </div>
+        <div class="log" id="log-container">
         </div>
 
         <hr class="divider" />
 
         <p class="desc">
-          Os servidores estão em manutenção.<br/>
-          Volte em instantes — a página recarregará assim que o serviço estiver de volta.
+          Nossa infraestrutura está passando por atualizações.<br/>
+          Esta página verifica o status em tempo real
         </p>
       </div>
     </div>
 
-    <p class="footer">
-      ← voltar para <a href="https://seusomelier.com.br">seusomelier.com.br</a>
-    </p>
+    <div class="footer">
+      <a href="https://www.seusomelier.com.br">← Home</a>
+      <a href="https://status.seusomelier.com.br">← Status</a>
+      <a href="https://cloud.seusomelier.com.br">← Cloud</a>
+      <a href="https://reader.seusomelier.com.br">← Reader</a>
+    </div>
   </div>
 
   <script>
-    setTimeout(() => {
-      window.location.href = 'https://reader.seusomelier.com.br';
-    }, 30000);
+    const services = [
+      { id: 'tunnel', name: 'cloudflare-tunnel', type: 'internal', expected: 'online' }, // Sempre online
+      { id: 'www', name: 'www.seusomelier.com.br', url: 'https://www.seusomelier.com.br', type: 'url' },
+      { id: 'status', name: 'status.seusomelier.com.br', url: 'https://status.seusomelier.com.br', type: 'url' },
+      { id: 'cloud', name: 'cloud.seusomelier.com.br', url: 'https://cloud.seusomelier.com.br', type: 'url' },
+      { id: 'reader', name: 'reader.seusomelier.com.br', url: 'https://reader.seusomelier.com.br', type: 'url' },
+      { id: 'watch', name: 'watch.seusomelier.com.br', type: 'discontinued' },
+      { id: 'yaindex', name: 'yaindex.seusomelier.com.br', type: 'discontinued' }
+    ];
+
+    const logContainer = document.getElementById('log-container');
+
+    function renderLogUI() {
+      logContainer.innerHTML = '';
+      services.forEach(service => {
+        const line = document.createElement('div');
+        line.className = 'log-line';
+        line.id = `log-${service.id}`;
+        
+        let initialStatus = 'checking';
+        let initialText = 'verificando...';
+        
+        if (service.type === 'discontinued') {
+          initialStatus = 'disc';
+          initialText = 'descontinuado';
+        } else if (service.type === 'internal') {
+          initialStatus = 'online';
+          initialText = 'online';
+        }
+
+        line.innerHTML = `
+          <div class="log-left">
+            <span class="log-time">[sys]</span>
+            <span>${service.name}</span>
+          </div>
+          <div class="status-badge ${initialStatus}" id="status-${service.id}">${initialText}</div>
+        `;
+        logContainer.appendChild(line);
+      });
+    }
+
+    function updateServiceUI(id, status, text) {
+      const badge = document.getElementById(`status-${id}`);
+      if(badge) {
+        badge.className = `status-badge ${status}`;
+        badge.innerText = text;
+      }
+    }
+
+    async function checkUrlStatus(url) {
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 6000);
+        await fetch(url, { 
+          mode: 'no-cors', 
+          cache: 'no-store', 
+          signal: controller.signal 
+        });
+
+        clearTimeout(timeoutId);
+        return true; 
+      } catch (error) {
+        return false;
+      }
+    }
+
+    async function runChecks() {
+      for (const service of services) {
+        if (service.type === 'url') {
+          updateServiceUI(service.id, 'checking', 'verificando...');
+          
+          const isOnline = await checkUrlStatus(service.url);
+          
+          if (isOnline) {
+            updateServiceUI(service.id, 'online', 'online');
+            
+            // Lógica de redirecionamento
+            // if (service.id === 'reader') {
+            //   setTimeout(() => {
+            //     window.location.href = service.url;
+            //   }, 2000);
+            // }
+          } else {
+            updateServiceUI(service.id, 'offline', 'inalcançável');
+          }
+        }
+      }
+    }
+
+    renderLogUI();
+    runChecks();
+    setInterval(runChecks, 30000);
+
   </script>
 </body>
 </html>
