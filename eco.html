@@ -19,6 +19,7 @@
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
       --status-online: #10b981;
+      --status-offline: #ef4444;
       --status-disc: #64748b;
     }
 
@@ -176,6 +177,9 @@
     .online { color: var(--status-online); }
     .online::before { background: var(--status-online); box-shadow: 0 0 8px var(--status-online); }
 
+    .offline { color: var(--status-offline); }
+    .offline::before { background: var(--status-offline); box-shadow: 0 0 8px var(--status-offline); }
+
     .disc { color: var(--status-disc); }
     .disc::before { background: var(--status-disc); }
 
@@ -226,8 +230,8 @@
     const services = [
       { id: 'tunnel', name: 'Tunnel', url: '', icon: '🛡️', type: 'internal' },
       { id: 'www', name: 'Home', url: 'https://www.seusomelier.com.br', icon: '🏠', type: 'url' },
-      { id: 'status', name: 'Status', url: 'https://status.seusomelier.com.br', icon: '📊', type: 'url' },
-      { id: 'cloud', name: 'Cloud', url: 'https://cloud.seusomelier.com.br', icon: '☁️', type: 'url' },
+      { id: 'status', name: 'Status', url: 'https://status.seusomelier.com.br', icon: '📊', type: 'url', status: 'offline' },
+      { id: 'cloud', name: 'Cloud', url: 'https://cloud.seusomelier.com.br', icon: '☁️', type: 'url', status: 'offline' },
       { id: 'reader', name: 'Reader', url: 'https://reader.seusomelier.com.br', icon: '📖', type: 'url' },
       { id: 'watch', name: 'Watch', url: 'watch.seusomelier.com.br', icon: '🎬', type: 'discontinued' },
       { id: 'yaindex', name: 'YaIndex', url: 'yaindex.seusomelier.com.br', icon: '🔍', type: 'discontinued' }
@@ -244,8 +248,8 @@
         const isDiscontinued = service.type === 'discontinued';
         const isInternal = service.type === 'internal';
         
-        let initialStatus = 'online';
-        let initialText = 'Online';
+        let initialStatus = service.status || 'online';
+        let initialText = initialStatus === 'offline' ? 'Offline' : 'Online';
         
         if (isDiscontinued) {
           initialStatus = 'disc';
