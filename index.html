@@ -4,20 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta name="description" content="seusomelier." />
-  <meta name="keywords" content="seusomelier, luiz fernando, bebi mas sou somelier" />
+  <meta name="description" content="Landing page do Seu Sommelier com links para redes sociais, música, contato e ecossistema digital." />
+  <meta name="keywords" content="seusomelier, luiz fernando, bebi mas sou somelier, links, música, spotify, instagram" />
   <meta name="robots" content="index, follow" />
+  <meta name="author" content="Seu Sommelier" />
+  <meta name="theme-color" content="#881E1E" />
   <link rel="canonical" href="https://www.seusomelier.com.br/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-  <meta property="og:title" content="seusomelier" />
-  <meta property="og:description" content="seusomelier." />
+  <meta property="og:title" content="@seusomelier" />
+  <meta property="og:description" content="Landing page do Seu Sommelier com links para redes sociais, música, contato e ecossistema digital." />
   <meta property="og:url" content="https://www.seusomelier.com.br/" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://www.seusomelier.com.br/img/taylor.jpg" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="seusomelier" />
-  <meta name="twitter:description" content="seusomelier." />
+  <meta name="twitter:title" content="@seusomelier" />
+  <meta name="twitter:description" content="Landing page do Seu Sommelier com links para redes sociais, música, contato e ecossistema digital." />
   <meta name="twitter:image" content="https://www.seusomelier.com.br/img/taylor.jpg" />
 
   <script type="application/ld+json">
@@ -145,6 +149,15 @@
 
     .link-card:active { transform: translateY(0); }
 
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
     .link-avatar {
       position: absolute;
       left: 10px;
@@ -206,55 +219,55 @@
 
 <body>
   <div class="intro-overlay" id="introOverlay" aria-hidden="true">
-    <img src="img/directbygod.png" alt="" />
+    <img src="img/directbygod.png" alt="" loading="eager" />
   </div>
 
   <main class="page">
     <header class="profile">
-      <img class="avatar" src="img/1507104-kanye-west-wallpaper.jpg" alt="Avatar de Seu Sommelier" />
+      <img class="avatar" src="img/1507104-kanye-west-wallpaper.jpg" alt="Avatar de Seu Sommelier" loading="eager" decoding="async" />
       <h1>@seusomelier</h1>
       <p class="bio">Eu bebi mas sou somelier</p>
     </header>
 
     <nav class="links" aria-label="Links de Seu Sommelier">
-      <a class="link-card" href="mailto:eu@seusomelier.com.br">
-        <img class="link-avatar" src="img/ce603a0499b07f0b52fd9d72261256eb.jpg" alt="" />
+      <a class="link-card" href="mailto:eu@seusomelier.com.br" aria-label="Enviar e-mail para Seu Sommelier">
+        <img class="link-avatar" src="img/ce603a0499b07f0b52fd9d72261256eb.jpg" alt="" loading="lazy" decoding="async" />
         <span>eu</span>
         <span class="more" aria-hidden="true">⋮</span>
       </a>
 
-      <a class="link-card" href="https://www.seusomelier.com.br/eco" target="_blank" rel="noopener noreferrer">
-        <img class="link-avatar" src="/img/cat.gif" alt="Ícone de ecosistema" />
+      <a class="link-card" href="https://www.seusomelier.com.br/eco" target="_blank" rel="noopener noreferrer" aria-label="Abrir ecossistema de Seu Sommelier">
+        <img class="link-avatar" src="img/cat.gif" alt="Ícone de ecossistema" loading="lazy" decoding="async" />
         <span>ecosistema</span>
         <span class="more" aria-hidden="true">⋮</span>
       </a>
 
-      <a class="link-card" href="https://steamcommunity.com/id/seusommelier/" target="_blank" rel="noopener noreferrer">
-        <img class="link-avatar" src="img/472684011_18494965459009287_7220539255364855977_n (Edit).png" alt="Ícone de ecosistema" />
+      <a class="link-card" href="https://steamcommunity.com/id/seusommelier/" target="_blank" rel="noopener noreferrer" aria-label="Abrir perfil da Steam de Seu Sommelier">
+        <img class="link-avatar" src="img/472684011_18494965459009287_7220539255364855977_n (Edit).png" alt="Ícone de Steam" loading="lazy" decoding="async" />
         <span>steam</span>
         <span class="more" aria-hidden="true">⋮</span>
       </a>
 
-      <a class="link-card" href="https://open.spotify.com/user/21y377h4crhxufpfvftoihrtq?si=dc1ed887a9024305" target="_blank" rel="noopener noreferrer">
-        <img class="link-avatar" src="img/557644443_25425894463678166_5231286458654490500_n (1).jpg" alt="" />
+      <a class="link-card" href="https://open.spotify.com/user/21y377h4crhxufpfvftoihrtq?si=dc1ed887a9024305" target="_blank" rel="noopener noreferrer" aria-label="Abrir perfil do Spotify de Seu Sommelier">
+        <img class="link-avatar" src="img/557644443_25425894463678166_5231286458654490500_n (1).jpg" alt="Capa do Spotify" loading="lazy" decoding="async" />
         <span>seusomelier 2.31.104 on Spotify</span>
         <span class="more" aria-hidden="true">⋮</span>
       </a>
 
-      <a class="link-card" href="https://www.instagram.com/seusomelier/" target="_blank" rel="noopener noreferrer">
-        <img class="link-avatar" src="img/IMG-20250424-WA0015.jpg" alt="" />
+      <a class="link-card" href="https://www.instagram.com/seusomelier/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram de Seu Sommelier">
+        <img class="link-avatar" src="img/IMG-20250424-WA0015.jpg" alt="Foto de perfil do Instagram" loading="lazy" decoding="async" />
         <span>Instagram<br><small>@seusomelier</small></span>
         <span class="more" aria-hidden="true">⋮</span>
       </a>
 
-      <a class="link-card" href="https://www.youtube.com/@seusomelier" target="_blank" rel="noopener noreferrer">
-        <img class="link-avatar" src="img/channels4_profile.jpg" alt="" />
+      <a class="link-card" href="https://www.youtube.com/@seusomelier" target="_blank" rel="noopener noreferrer" aria-label="Abrir canal do YouTube de Seu Sommelier">
+        <img class="link-avatar" src="img/channels4_profile.jpg" alt="Avatar do YouTube" loading="lazy" decoding="async" />
         <span>@seusomelier no YouTube</span>
         <span class="more" aria-hidden="true">⋮</span>
       </a>
 
-      <a class="link-card" href="https://open.spotify.com/playlist/2BG7MQ4o5cB1DfPUx0K8DF?si=e6ccd882f8474e44" target="_blank" rel="noopener noreferrer">
-        <img class="link-avatar" src="img/brat.png" alt="" />
+      <a class="link-card" href="https://open.spotify.com/playlist/2BG7MQ4o5cB1DfPUx0K8DF?si=e6ccd882f8474e44" target="_blank" rel="noopener noreferrer" aria-label="Abrir playlist de música de Seu Sommelier">
+        <img class="link-avatar" src="img/brat.png" alt="Capa da playlist" loading="lazy" decoding="async" />
         <span>white girls music<br><small>Playlist · but it's for the guys</small></span>
         <span class="more" aria-hidden="true">⋮</span>
       </a>
@@ -265,10 +278,19 @@
   <script>
     const introOverlay = document.getElementById("introOverlay");
     const INTRO_DURATION = 2500;
+    const INTRO_STORAGE_KEY = "seusomelier-intro-hidden";
 
     window.addEventListener("load", () => {
+      const hasSeenIntro = localStorage.getItem(INTRO_STORAGE_KEY) === "true";
+
+      if (hasSeenIntro) {
+        introOverlay.classList.add("is-hidden");
+        return;
+      }
+
       window.setTimeout(() => {
         introOverlay.classList.add("is-hidden");
+        localStorage.setItem(INTRO_STORAGE_KEY, "true");
       }, INTRO_DURATION);
     });
   </script>

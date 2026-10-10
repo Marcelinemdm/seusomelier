@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ecossistema digital de Seu Sommelier com links, serviços ativos e áreas do projeto." />
+  <meta name="theme-color" content="#09090b" />
   <link rel="shortcut icon" href="img/472684011_18494965459009287_7220539255364855977_n (Edit).png" type="image/x-icon">
   <title>Seu Sommelier - Ecossistema</title>
   <style>
@@ -130,6 +132,31 @@
       box-shadow: 0 10px 30px -10px var(--accent-glow);
     }
 
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 auto 2rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      transition: color 0.2s ease;
+    }
+
+    .back-link:hover,
+    .back-link:focus-visible {
+      color: var(--text-main);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
     .card-header {
       display: flex;
       justify-content: space-between;
@@ -208,6 +235,8 @@
       <p class="subtitle">Ecossistema</p>
     </div>
 
+    <a class="back-link" href="https://www.seusomelier.com.br/" aria-label="Voltar para a página inicial">← voltar para home</a>
+
     <div class="section">
       <h2 class="section-title">Serviços Ativos</h2>
       <div class="grid" id="active-grid">
@@ -221,7 +250,7 @@
     </div>
 
     <div class="footer">
-      Sistemas internos &copy; 2024
+      Sistemas internos &copy; 2026
     </div>
 
   </div>
@@ -233,8 +262,8 @@
       { id: 'status', name: 'Status', url: 'https://status.seusomelier.com.br', icon: '📊', type: 'url', status: 'offline' },
       { id: 'cloud', name: 'Cloud', url: 'https://cloud.seusomelier.com.br', icon: '☁️', type: 'url', status: 'offline' },
       { id: 'reader', name: 'Reader', url: 'https://reader.seusomelier.com.br', icon: '📖', type: 'url' },
-      { id: 'watch', name: 'Watch', url: 'watch.seusomelier.com.br', icon: '🎬', type: 'discontinued' },
-      { id: 'yaindex', name: 'YaIndex', url: 'yaindex.seusomelier.com.br', icon: '🔍', type: 'discontinued' }
+      { id: 'watch', name: 'Watch', url: 'https://watch.seusomelier.com.br', icon: '🎬', type: 'discontinued' },
+      { id: 'yaindex', name: 'YaIndex', url: 'https://yaindex.seusomelier.com.br', icon: '🔍', type: 'discontinued' }
     ];
 
     const activeGrid = document.getElementById('active-grid');
@@ -260,7 +289,7 @@
         }
 
         const CardTag = (service.url && !isDiscontinued && !isInternal) ? 'a' : 'div';
-        const hrefAttr = (CardTag === 'a') ? `href="${service.url}" target="_blank"` : '';
+        const hrefAttr = (CardTag === 'a') ? `href="${service.url}" target="_blank" rel="noopener noreferrer" aria-label="Abrir ${service.name}"` : '';
         const clickableClass = (CardTag === 'a') ? 'clickable' : '';
         const discClass = isDiscontinued ? 'discontinued' : '';
 
