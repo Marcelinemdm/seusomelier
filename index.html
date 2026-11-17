@@ -4,43 +4,48 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta name="description" content="Landing page do Seu Sommelier com links para redes sociais, música, contato e ecossistema digital." />
+  <meta name="description" content="Seu Sommelier — redes sociais, música, contato e ecossistema digital." />
   <meta name="keywords" content="seusomelier, luiz fernando, bebi mas sou somelier, links, música, spotify, instagram" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Seu Sommelier" />
   <meta name="theme-color" content="#881E1E" />
+
   <link rel="canonical" href="https://www.seusomelier.com.br/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
+  <!-- Open Graph -->
   <meta property="og:title" content="@seusomelier" />
-  <meta property="og:description" content="Landing page do Seu Sommelier com links para redes sociais, música, contato e ecossistema digital." />
+  <meta property="og:description" content="Eu bebi mas sou somelier." />
   <meta property="og:url" content="https://www.seusomelier.com.br/" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://www.seusomelier.com.br/img/taylor.jpg" />
 
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="@seusomelier" />
-  <meta name="twitter:description" content="Landing page do Seu Sommelier com links para redes sociais, música, contato e ecossistema digital." />
+  <meta name="twitter:description" content="Eu bebi mas sou somelier." />
   <meta name="twitter:image" content="https://www.seusomelier.com.br/img/taylor.jpg" />
 
+  <!-- Dados estruturados -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "seusomelier",
+    "name": "Seu Sommelier",
     "url": "https://www.seusomelier.com.br/",
-    "description": "seusomelier.",
+    "description": "Eu bebi mas sou somelier.",
     "inLanguage": "pt-BR"
   }
   </script>
 
   <link rel="icon" type="image/jpeg" href="img/taylor.jpg" />
+
   <title>@seusomelier</title>
 
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=VT323&display=swap");
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=VT323&display=swap" rel="stylesheet" />
 
+  <style>
     :root {
       --bg: #881E1E;
       --text: #251519;
@@ -49,7 +54,9 @@
       --card-hover: rgba(230, 174, 174, 0.30);
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       min-height: 100vh;
@@ -59,6 +66,7 @@
       overflow-x: hidden;
       color: var(--text);
       font-family: "Space Mono", monospace;
+
       background:
         radial-gradient(circle at 50% 12%, rgba(255, 224, 224, 0.23), transparent 31rem),
         radial-gradient(circle at 50% 100%, rgba(61, 7, 7, 0.24), transparent 36rem),
@@ -72,7 +80,9 @@
       z-index: -1;
       pointer-events: none;
       opacity: 0.18;
+
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+
       mix-blend-mode: multiply;
     }
 
@@ -82,7 +92,9 @@
       text-align: center;
     }
 
-    .profile { margin-bottom: 32px; }
+    .profile {
+      margin-bottom: 32px;
+    }
 
     .avatar {
       width: 96px;
@@ -106,16 +118,16 @@
     }
 
     .bio {
-      margin: 11px 0 0;
+      margin: 11px 0 22px;
       color: #fff;
       font-size: 0.92rem;
       letter-spacing: 0.2px;
       text-shadow: 1px 1px 0 rgba(54, 5, 5, 0.2);
     }
 
-    .links { 
-      display: grid; 
-      gap: 14px; 
+    .links {
+      display: grid;
+      gap: 14px;
     }
 
     .link-card {
@@ -126,45 +138,52 @@
       justify-content: center;
       padding: 12px 58px;
       overflow: hidden;
+
       border: 1.5px solid var(--border);
       border-radius: 999px;
+
       color: var(--text);
       text-decoration: none;
       font-size: 0.95rem;
       letter-spacing: -0.3px;
+
       background: var(--card);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
+
       box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
-      transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+
+      transition:
+        transform 160ms ease,
+        background 160ms ease,
+        box-shadow 160ms ease;
     }
 
     .link-card:hover,
     .link-card:focus-visible {
       transform: translateY(-2px);
       background: var(--card-hover);
-      box-shadow: 0 7px 18px rgba(50, 0, 0, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+
+      box-shadow:
+        0 7px 18px rgba(50, 0, 0, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22);
+
       outline: none;
     }
 
-    .link-card:active { transform: translateY(0); }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-      }
+    .link-card:active {
+      transform: translateY(0);
     }
 
-    .link-avatar {
-      position: absolute;
-      left: 10px;
-      width: 44px;
-      height: 44px;
-      object-fit: cover;
-      border-radius: 50%;
+    .whatsapp-card {
+      gap: 10px;
+    }
+
+    .whatsapp-icon {
+      width: 25px;
+      height: 25px;
+      flex-shrink: 0;
+      fill: currentColor;
     }
 
     .more {
@@ -179,17 +198,25 @@
       color: rgba(37, 21, 25, 0.72);
     }
 
+    /* Tela de introdução */
+
     .intro-overlay {
       position: fixed;
       inset: 0;
       z-index: 9999;
+
       display: grid;
       place-items: center;
       padding: 16px;
+
       background: #000;
+
       opacity: 1;
       visibility: visible;
-      transition: opacity 450ms ease, visibility 450ms ease;
+
+      transition:
+        opacity 450ms ease,
+        visibility 450ms ease;
     }
 
     .intro-overlay.is-hidden {
@@ -197,7 +224,6 @@
       visibility: hidden;
       pointer-events: none;
     }
-
 
     .intro-overlay img {
       display: block;
@@ -208,91 +234,132 @@
       background: #000;
     }
 
+    /* Responsividade */
+
     @media (max-width: 420px) {
-      .page { width: min(100% - 28px, 540px); }
-      .profile { margin-bottom: 28px; }
-      .link-card { min-height: 62px; font-size: 0.86rem; }
-      .avatar { width: 86px; height: 86px; }
+      .page {
+        width: min(100% - 28px, 540px);
+      }
+
+      .profile {
+        margin-bottom: 28px;
+      }
+
+      .link-card {
+        min-height: 62px;
+        font-size: 0.86rem;
+      }
+
+      .avatar {
+        width: 86px;
+        height: 86px;
+      }
+    }
+
+    /* Acessibilidade */
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
     }
   </style>
 </head>
 
 <body>
+
+  <!-- Introdução -->
   <div class="intro-overlay" id="introOverlay" aria-hidden="true">
-    <img src="img/directbygod.png" alt="" loading="eager" />
+    <img src="img/pe.jpeg" alt="" fetchpriority="high" />
   </div>
 
   <main class="page">
+
     <header class="profile">
-      <img class="avatar" src="img/1507104-kanye-west-wallpaper.jpg" alt="Avatar de Seu Sommelier" loading="eager" decoding="async" />
+
+      <img
+        class="avatar"
+        src="img/IMG-20250424-WA0015.jpg"
+        alt="Avatar de Seu Sommelier"
+        fetchpriority="high"
+      />
+
       <h1>@seusomelier</h1>
+
       <p class="bio">Eu bebi mas sou somelier</p>
+
+      <!-- Contato -->
+      <nav class="links" aria-label="Contato">
+
+        <a
+          class="link-card whatsapp-card"
+          href="https://wa.me/557399093580?text=Oii%21%20Vim%20pelo%20site%20e%20queria%20pedir%20aquela%20foto%20que%20n%C3%A3o%20pode%20ficar%20por%20aqui%20kkkk"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Conversar com Luiz pelo WhatsApp"
+        >
+
+          <!-- Ícone do WhatsApp -->
+          <svg
+            class="whatsapp-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path d="M20.52 3.48A11.82 11.82 0 0 0 12.08 0C5.5 0 .15 5.35.15 11.93c0 2.1.55 4.15 1.6 5.96L.05 24l6.26-1.64a11.9 11.9 0 0 0 5.77 1.47h.01c6.58 0 11.93-5.35 11.93-11.93 0-3.19-1.24-6.19-3.5-8.42ZM12.09 21.8a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.72.98.99-3.63-.23-.37a9.83 9.83 0 0 1-1.52-5.26c0-5.44 4.43-9.87 9.87-9.87 2.64 0 5.12 1.03 6.98 2.89a9.8 9.8 0 0 1 2.89 6.98c0 5.44-4.43 9.87-9.87 9.87Zm5.42-7.39c-.3-.15-1.76-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.39-1.47-.88-.79-1.48-1.77-1.65-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.48.71.31 1.26.5 1.69.64.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/>
+          </svg>
+
+          <span>Peça a foto aqui kkkkk</span>
+
+        </a>
+
+      </nav>
+
     </header>
 
-    <nav class="links" aria-label="Links de Seu Sommelier">
-      <a class="link-card" href="mailto:eu@seusomelier.com.br" aria-label="Enviar e-mail para Seu Sommelier">
-        <img class="link-avatar" src="img/ce603a0499b07f0b52fd9d72261256eb.jpg" alt="" loading="lazy" decoding="async" />
-        <span>eu</span>
-        <span class="more" aria-hidden="true">⋮</span>
-      </a>
-
-      <a class="link-card" href="https://www.seusomelier.com.br/eco" target="_blank" rel="noopener noreferrer" aria-label="Abrir ecossistema de Seu Sommelier">
-        <img class="link-avatar" src="img/cat.gif" alt="Ícone de ecossistema" loading="lazy" decoding="async" />
-        <span>ecosistema</span>
-        <span class="more" aria-hidden="true">⋮</span>
-      </a>
-
-      <a class="link-card" href="https://steamcommunity.com/id/seusommelier/" target="_blank" rel="noopener noreferrer" aria-label="Abrir perfil da Steam de Seu Sommelier">
-        <img class="link-avatar" src="img/472684011_18494965459009287_7220539255364855977_n (Edit).png" alt="Ícone de Steam" loading="lazy" decoding="async" />
-        <span>steam</span>
-        <span class="more" aria-hidden="true">⋮</span>
-      </a>
-
-      <a class="link-card" href="https://open.spotify.com/user/21y377h4crhxufpfvftoihrtq?si=dc1ed887a9024305" target="_blank" rel="noopener noreferrer" aria-label="Abrir perfil do Spotify de Seu Sommelier">
-        <img class="link-avatar" src="img/557644443_25425894463678166_5231286458654490500_n (1).jpg" alt="Capa do Spotify" loading="lazy" decoding="async" />
-        <span>seusomelier 2.31.104 on Spotify</span>
-        <span class="more" aria-hidden="true">⋮</span>
-      </a>
-
-      <a class="link-card" href="https://www.instagram.com/seusomelier/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram de Seu Sommelier">
-        <img class="link-avatar" src="img/IMG-20250424-WA0015.jpg" alt="Foto de perfil do Instagram" loading="lazy" decoding="async" />
-        <span>Instagram<br><small>@seusomelier</small></span>
-        <span class="more" aria-hidden="true">⋮</span>
-      </a>
-
-      <a class="link-card" href="https://www.youtube.com/@seusomelier" target="_blank" rel="noopener noreferrer" aria-label="Abrir canal do YouTube de Seu Sommelier">
-        <img class="link-avatar" src="img/channels4_profile.jpg" alt="Avatar do YouTube" loading="lazy" decoding="async" />
-        <span>@seusomelier no YouTube</span>
-        <span class="more" aria-hidden="true">⋮</span>
-      </a>
-
-      <a class="link-card" href="https://open.spotify.com/playlist/2BG7MQ4o5cB1DfPUx0K8DF?si=e6ccd882f8474e44" target="_blank" rel="noopener noreferrer" aria-label="Abrir playlist de música de Seu Sommelier">
-        <img class="link-avatar" src="img/brat.png" alt="Capa da playlist" loading="lazy" decoding="async" />
-        <span>white girls music<br><small>Playlist · but it's for the guys</small></span>
-        <span class="more" aria-hidden="true">⋮</span>
-      </a>
-
-    </nav>
   </main>
 
   <script>
-    const introOverlay = document.getElementById("introOverlay");
-    const INTRO_DURATION = 2500;
-    const INTRO_STORAGE_KEY = "seusomelier-intro-hidden";
+    (() => {
+      const introOverlay = document.getElementById("introOverlay");
 
-    window.addEventListener("load", () => {
-      const hasSeenIntro = localStorage.getItem(INTRO_STORAGE_KEY) === "true";
+      const INTRO_DURATION = 10000;
+      const INTRO_STORAGE_KEY = "seusomelier-intro-hidden";
 
-      if (hasSeenIntro) {
+      function hideIntro() {
         introOverlay.classList.add("is-hidden");
-        return;
+
+        try {
+          localStorage.setItem(INTRO_STORAGE_KEY, "true");
+        } catch (error) {
+          // Continua funcionando mesmo se o armazenamento estiver bloqueado.
+        }
       }
 
-      window.setTimeout(() => {
-        introOverlay.classList.add("is-hidden");
-        localStorage.setItem(INTRO_STORAGE_KEY, "true");
-      }, INTRO_DURATION);
-    });
+      window.addEventListener("load", () => {
+        let hasSeenIntro = false;
+
+        try {
+          hasSeenIntro =
+            localStorage.getItem(INTRO_STORAGE_KEY) === "true";
+        } catch (error) {
+          hasSeenIntro = false;
+        }
+
+        if (hasSeenIntro) {
+          introOverlay.classList.add("is-hidden");
+          return;
+        }
+
+        window.setTimeout(hideIntro, INTRO_DURATION);
+      });
+    })();
   </script>
+
 </body>
 </html>
